@@ -4,7 +4,13 @@
   <title>Library</title>
 </head>
 <body>
-  <div id="externalContent"></div>
-  <script src="./library/script.js"></script>
+  <div id="imported-content"></div>
+  <script>
+    fetch('index_smp.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('imported-content').innerHTML = data;
+      });
+  </script>
 </body>
 </html>
