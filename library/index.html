@@ -1,97 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>File Explorer</title>
-  <style>
-    .container {
-      display: flex;
-      height: 100vh;
-      font-family: Arial, sans-serif;
-    }
-
-    .sidebar {
-      flex: 0 0 200px;
-      padding: 10px;
-      background-color: #f5f5f5;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .sidebar li {
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-
-    .sidebar li:hover {
-      text-decoration: underline;
-    }
-
-    .content {
-      flex: 1;
-      padding: 10px;
-    }
-
-    .content ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .content li {
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-
-    .content li:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <title>Library</title>
 </head>
 <body>
-  <div class="container">
-    <div class="sidebar">
-      <ul id="sidebarList">
-        <li onclick="navigate('Category A')">Category A</li>
-        <li onclick="navigate('Category B')">Category B</li>
-        <li onclick="navigate('Category C')">Category C</li>
-      </ul>
-    </div>
-    <div class="content">
-      <ul id="contentList">
-        <li onclick="navigate('Subcategory 1')">Subcategory 1</li>
-        <li onclick="navigate('Subcategory 2')">Subcategory 2</li>
-        <li onclick="navigate('Subcategory 3')">Subcategory 3</li>
-      </ul>
-    </div>
-  </div>
-
-  <script>
-    function navigate(category) {
-      var sidebarList = document.getElementById("sidebarList");
-      var contentList = document.getElementById("contentList");
-
-      // Clear the content list
-      contentList.innerHTML = "";
-
-      // Simulate asynchronous loading of subcategories
-      setTimeout(function() {
-        // Append subcategories to the content list
-        if (category === "Category A") {
-          contentList.innerHTML += "<li onclick=\"navigate('Subcategory A1')\">Subcategory A1</li>";
-          contentList.innerHTML += "<li onclick=\"navigate('Subcategory A2')\">Subcategory A2</li>";
-        } else if (category === "Category B") {
-          contentList.innerHTML += "<li onclick=\"navigate('Subcategory B1')\">Subcategory B1</li>";
-          contentList.innerHTML += "<li onclick=\"navigate('Subcategory B2')\">Subcategory B2</li>";
-        } else if (category === "Category C") {
-          contentList.innerHTML += "<li onclick=\"navigate('Subcategory C1')\">Subcategory C1</li>";
-          contentList.innerHTML += "<li onclick=\"navigate('Subcategory C2')\">Subcategory C2</li>";
-        }
-      }, 500);
-    }
-  </script>
+  <div id="externalContent"></div>
+  <script src="script.js"></script>
 </body>
 </html>
