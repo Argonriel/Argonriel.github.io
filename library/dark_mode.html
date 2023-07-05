@@ -3,10 +3,10 @@
 <head>
   <style>
     .light-blue{
-      color:lightblue;
+      color:#ADD8E6;
     }
     .light-grey{
-      color:lightgrey;
+      color:#D3D3D3;
     }
   </style>
 </head>
@@ -20,10 +20,8 @@
       '#ADD8E6': '#ffffff', // light blue -> New Color 1
       '#D3D3D3': '#ffffff', // light gray -> New Color 2
       'transparent': '#000000',
-      // Add more color mappings as needed
     };
     
-    // Function to convert a color to a corresponding new color
     function convertColorToNewColor(color) {
       return colorMapping[color] || color;
     }
@@ -32,23 +30,19 @@
     function convertPageToNewColors() {
       // Get all elements on the page
       const elements = document.getElementsByTagName('*');
-    
       // Loop through each element
       for (let i = 0; i < elements.length; i++) {
         const element = elements[i];
-    
         // Convert background color to new color
         if (element.style.backgroundColor) {
           const newBackground = convertColorToNewColor(element.style.backgroundColor);
           element.style.backgroundColor = newBackground;
         }
-    
         // Convert text color to new color
         if (element.style.color) {
           const newText = convertColorToNewColor(element.style.color);
           element.style.color = newText;
         }
-    
         // Convert border color to new color
         if (element.style.borderColor) {
           const newBorder = convertColorToNewColor(element.style.borderColor);
@@ -56,9 +50,8 @@
         }
       }
     }
-    
-    // Call the function to convert the page to the corresponding new colors
-    convertPageToNewColors();
+    // Call the function。
+    // convertPageToNewColors();
   </script>
   <style>
     .btn{
@@ -80,6 +73,6 @@
       z-index: 11;
     }
   </style>
-  <button class="btn" onclick="changeColor()">Dark mode</button>
+  <button class="btn" onclick="convertPageToNewColors()">Dark mode</button>
 </body>
 </html>
