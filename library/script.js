@@ -1,5 +1,5 @@
 // script.js
-fetch('index_smp.html')
+fetch('index_ezp.html')
   .then(response => response.text())
   .then(data => {
     document.getElementById('externalContent').innerHTML = data;
