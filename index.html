@@ -3,62 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jiayi | Applied Mathematics</title>
+  <title>Mathematical Garden</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <main class="container">
-    <section class="hero">
-      <h1>Jiayi Liwei</h1>
-      <p class="subtitle">Undergraduate Student in Applied Mathematics</p>
-      <p class="school">University of California, Los Angeles</p>
+  <main class="garden">
+    <svg viewBox="0 0 1000 700" class="garden-svg">
+      <circle id="seed" cx="500" cy="560" r="14" />
 
-      <div class="links">
-        <a href="mailto:jiayi2024@ucla.edu">Email</a>
-        <a href="files/cv.pdf" target="_blank">CV</a>
-        <a href="https://github.com/argonriel" target="_blank">GitHub</a>
-      </div>
-    </section>
+      <path
+        id="curve"
+        d="M 500 560 C 430 460, 570 370, 500 260"
+      />
 
-    <section>
-      <h2>About</h2>
-      <p>
-        I am an undergraduate student in Applied Mathematics at UCLA. My academic
-        interests include numerical simulation, differential equations, dynamical
-        systems, mathematical modeling, and scientific computing.
-      </p>
+      <circle id="flower" cx="500" cy="240" r="42" />
+    </svg>
 
-      <p>
-        I am especially interested in using mathematical and computational tools
-        to study nonlinear systems and physical phenomena.
-      </p>
-    </section>
-
-    <section>
-      <h2>CV</h2>
-      <p>
-        My CV includes my coursework, teaching experience, projects, and technical
-        skills.
-      </p>
-      <p>
-        <a class="button" href="files/cv.pdf" target="_blank">View CV</a>
-      </p>
-    </section>
-
-    <section>
-      <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:jiayi2024@ucla.edu">jiayi2024@ucla.edu</a>
-      </p>
-      <p>
-        GitHub: <a href="https://github.com/argonriel" target="_blank">github.com/argonriel</a>
-      </p>
-    </section>
+    <div class="text">
+      <h1>Mathematical Garden</h1>
+      <p>A small world grown from a point, a curve, and motion.</p>
+    </div>
   </main>
 
-  <footer>
-    <p>© 2026 Jiayi Liwei</p>
-  </footer>
+  <div class="scroll-space"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
