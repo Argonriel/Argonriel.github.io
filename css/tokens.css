@@ -1,0 +1,27 @@
+/* Design tokens — the single source of truth for color, type, and spacing.
+   Everything else (style.css, the SVG fills/strokes) reads these variables. */
+
+:root {
+  /* Color */
+  --bg: #faf9f5;              /* warm off-white background */
+  --terracotta: #d97757;     /* primary (UI: CTAs, accents) */
+  --terracotta-deep: #b5573c;/* CTA hover */
+  --ink: #2a2724;            /* text */
+  --plant: #4a5d45;          /* seed / stem / spiral green */
+  --petal: #e0a3a3;          /* flower */
+  --fruit-young: #e0a06f;    /* stamen / unripe fruit (warm) */
+  --fruit-ripe: #7e2d26;     /* mature fruit — deep oxblood terracotta (was #a8503c, too orange) */
+  --muted: #7a746c;          /* secondary text, hairlines */
+  --card: rgba(255, 255, 255, 0.6);
+
+  /* Type scale */
+  --font-serif: Georgia, "Times New Roman", serif;
+  --step-hero: clamp(2.4rem, 6vw, 4rem);
+  --step-h2: clamp(1.8rem, 4vw, 2.6rem);
+  --step-body: 1.1rem;
+
+  /* Spacing */
+  --pad-block: 6vh;
+  --pad-inline: 8vw;
+  --radius: 10px;
+}

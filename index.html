@@ -3,31 +3,109 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mathematical Garden</title>
+  <title>Mathematical Garden — Argonriel</title>
+  <meta name="description" content="A garden grown from a seed, a curve, and motion — seed to stem to flower to fruit." />
+  <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <main class="garden">
-    <svg viewBox="0 0 1000 700" class="garden-svg">
-      <circle id="seed" cx="500" cy="560" r="14" />
+  <!-- One pinned stage holds the growing SVG; five scenes cross-fade over it.
+       Without JS this is a normal scrollable document (scenes stack, all readable). -->
+  <div class="stage">
+    <svg viewBox="0 0 1000 760" class="garden-svg" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+      <!-- ground: two halves drawn center-outward, then faded.
+           Raised to y=600 so the landed seed stays fully inside the viewBox. -->
+      <g id="ground">
+        <path id="ground-l" d="M 500 600 L 120 600" />
+        <path id="ground-r" d="M 500 600 L 880 600" />
+      </g>
 
-      <path
-        id="curve"
-        d="M 500 560 C 430 460, 570 370, 500 260"
-      />
+      <!-- seed: falls from above, lands at the stem root (y=600) -->
+      <circle id="seed" cx="500" cy="600" r="14" />
 
-      <circle id="flower" cx="500" cy="240" r="42" />
+      <!-- stem: grown via stroke-dashoffset from root (600) up to the flower -->
+      <path id="stem" d="M 500 600 C 460 540, 540 450, 500 360" />
+
+      <!-- flower: rose curve r=cos(kθ), regenerated as k animates 1→5 -->
+      <g id="flower">
+        <path id="petals" d="" />
+      </g>
+
+      <!-- harvest: ONE superellipse fruit (grows in place from a small circle),
+           with a log spiral stroked inside it. No separate core element. -->
+      <g id="harvest">
+        <path id="fruit" d="" />
+        <path id="spiral" d="" />
+      </g>
     </svg>
 
-    <div class="text">
-      <h1>Mathematical Garden</h1>
-      <p>A small world grown from a point, a curve, and motion.</p>
-    </div>
-  </main>
+    <main>
+      <section class="scene" data-scene="seed">
+        <div class="scene-inner">
+          <h1>Mathematical Garden</h1>
+          <p class="lede">A small world grown from a seed, a curve, and motion. Scroll to watch it grow.</p>
+        </div>
+      </section>
 
-  <div class="scroll-space"></div>
+      <section class="scene" data-scene="stem" aria-labelledby="about-h">
+        <div class="scene-inner">
+          <h2 id="about-h">About</h2>
+          <p>
+            I'm Argonriel — I work where mathematics, code, and quiet design meet. I like
+            systems that start from one simple rule and grow into something alive.
+          </p>
+          <p>This page is one of them: a stem rising from a single point.</p>
+        </div>
+      </section>
 
-  <script src="script.js"></script>
+      <section class="scene" data-scene="flower" aria-labelledby="projects-h">
+        <div class="scene-inner">
+          <h2 id="projects-h">Projects</h2>
+          <div class="cards">
+            <article class="card">
+              <h3>Rhodonea</h3>
+              <p>A study of rose curves — how one parameter reshapes an entire bloom.</p>
+            </article>
+            <article class="card">
+              <h3>Driftfield</h3>
+              <p>Scroll-driven motion experiments: pinning, scrubbing, snap, timelines as composition.</p>
+            </article>
+            <article class="card">
+              <h3>Lattice</h3>
+              <p>Small tools for thinking visually about discrete structures and growth.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene" data-scene="wither" aria-labelledby="research-h">
+        <div class="scene-inner">
+          <h2 id="research-h">Research</h2>
+          <ul class="research-list">
+            <li><span class="year">2025</span> Parametric curves as interaction primitives — notes &amp; sketches.</li>
+            <li><span class="year">2024</span> On easing functions and perceived organic motion.</li>
+            <li><span class="year">2023</span> Procedural form from minimal rule sets.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="scene" data-scene="fruit" aria-labelledby="contact-h">
+        <div class="scene-inner">
+          <h2 id="contact-h">Contact</h2>
+          <p>What grew here started as one point. Want to talk gardens, curves, or code?</p>
+          <div class="cta-row">
+            <a class="cta" href="mailto:hello@argonriel.com">Say hello</a>
+            <a class="cta cta-ghost" href="files/cv.pdf">View CV</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- GSAP + ScrollTrigger from CDN as globals, then our module controller -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script type="module" src="js/garden.js"></script>
 </body>
 </html>

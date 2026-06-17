@@ -1,63 +1,250 @@
+/* Layout + presentation. Colors/type/spacing come from css/tokens.css. */
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  background: #f8f6ef;
-  color: #1f1f1f;
+  font-family: var(--font-serif);
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
 }
 
-.garden {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* ---------- Stage + SVG garden ---------- */
+
+.stage {
+  position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
 }
 
 .garden-svg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  z-index: 0;
 }
 
 #seed {
-  fill: #2f3e2f;
-  transform-origin: center;
+  fill: var(--plant);
+  transform-origin: center bottom; /* squash presses into the soil; anchor stays put */
+  transform-box: fill-box;
 }
 
-#curve {
+#ground-l,
+#ground-r,
+#stem {
   fill: none;
-  stroke: #2f3e2f;
+  stroke: var(--plant);
   stroke-width: 6;
   stroke-linecap: round;
 }
 
+#ground-l,
+#ground-r {
+  stroke-width: 4;
+}
+
 #flower {
-  fill: #d8a7b1;
+  transform-origin: 500px 330px;
+}
+
+#petals {
+  fill: var(--petal);
+  fill-rule: evenodd;
   opacity: 0;
-  transform-origin: center;
 }
 
-.text {
+#fruit {
+  fill: var(--fruit-ripe);
+  opacity: 0;
+}
+
+#spiral {
+  fill: none;
+  stroke: var(--bg);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  opacity: 0;
+}
+
+/* ---------- Scenes (content) ---------- */
+
+main {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+
+.scene {
   position: absolute;
-  left: 8%;
-  bottom: 10%;
-  max-width: 420px;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: var(--pad-block) var(--pad-inline);
 }
 
-.text h1 {
-  font-size: 3rem;
-  margin: 0 0 12px;
+/* JS on: only the first scene shows; the timeline owns the rest. */
+body.js .scene {
+  opacity: 0;
+  visibility: hidden;
 }
 
-.text p {
-  font-size: 1.1rem;
+body.js .scene[data-scene="seed"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scene-inner {
+  max-width: 540px;
+}
+
+h1 {
+  font-size: var(--step-hero);
+  line-height: 1.05;
+  margin: 0 0 16px;
+}
+
+h2 {
+  font-size: var(--step-h2);
+  margin: 0 0 18px;
+}
+
+.lede {
+  font-size: 1.25rem;
   line-height: 1.6;
+  color: var(--muted);
 }
 
-.scroll-space {
-  height: 3000px;
+.scene p {
+  font-size: var(--step-body);
+  line-height: 1.65;
+  margin: 0 0 14px;
+}
+
+/* Projects cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid rgba(74, 93, 69, 0.18);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.card p {
+  font-size: 0.98rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Research list */
+.research-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.research-list li {
+  padding: 12px 0;
+  border-top: 1px solid rgba(74, 93, 69, 0.18);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.research-list .year {
+  display: inline-block;
+  min-width: 64px;
+  color: var(--terracotta);
+  font-weight: bold;
+}
+
+/* Contact CTA */
+.cta-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.cta {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: var(--terracotta);
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  background: var(--terracotta-deep);
+}
+
+.cta-ghost {
+  background: transparent;
+  color: var(--terracotta);
+  border: 1px solid var(--terracotta);
+}
+
+.cta-ghost:hover {
+  background: rgba(217, 119, 87, 0.1);
+}
+
+/* ---------- Static, stacked flow: no-JS, reduced motion, mobile ---------- */
+
+body:not(.js) .stage,
+body.reduced .stage,
+body.static-flow .stage {
+  height: auto;
+  overflow: visible;
+}
+
+body:not(.js) .garden-svg,
+body.reduced .garden-svg,
+body.static-flow .garden-svg {
+  position: relative;
+  height: 66vh;
+}
+
+body:not(.js) main,
+body.reduced main,
+body.static-flow main {
+  height: auto;
+}
+
+body:not(.js) .scene,
+body.reduced .scene,
+body.static-flow .scene {
+  position: static;
+  inset: auto;
+  opacity: 1;
+  visibility: visible;
+  min-height: 70vh;
+}
+
+/* No-JS: show the bloom so the SVG isn't empty. */
+body:not(.js) #petals {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }
