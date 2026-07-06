@@ -1,0 +1,84 @@
+/* Hobbies page — knight's tour board. Tokens from css/tokens.css. */
+
+.board-stage {
+  margin-top: 4vh;
+  max-width: 520px;
+}
+
+#board-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.sq-light {
+  fill: var(--board-light);
+}
+
+.sq-dark {
+  fill: var(--board-dark);
+}
+
+.visited-dot {
+  fill: var(--terracotta);
+  opacity: 0.38;
+}
+
+/* static fallback (no GSAP / reduced motion) */
+.visited-dot.on {
+  opacity: 0.38;
+}
+
+.tour-path {
+  fill: none;
+  stroke: var(--tour-line);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.85;
+}
+
+.knight-marker {
+  fill: var(--plant);
+  stroke: var(--bg);
+  stroke-width: 3;
+}
+
+/* board-stage reuses .viz-bar / .viz-btn / .viz-caption patterns */
+.viz-bar {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.viz-btn {
+  flex: none;
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--terracotta);
+  background: transparent;
+  color: var(--terracotta);
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.viz-btn:hover {
+  background: rgba(217, 119, 87, 0.1);
+}
+
+.viz-caption {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+html.js .js-off-note {
+  display: none;
+}

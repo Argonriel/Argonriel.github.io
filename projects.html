@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Argonriel</title>
+  <meta name="description" content="Projects hung on the branches of an L-system tree." />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+</head>
+
+<body>
+  <nav class="site-nav" aria-label="Site">
+    <button class="nav-toggle cursor-target" type="button" aria-expanded="false" aria-controls="nav-panel">
+      <span aria-hidden="true">Λ</span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <div class="nav-panel" id="nav-panel">
+      <a class="nav-link cursor-target" href="index.html">Home</a>
+      <a class="nav-link cursor-target" href="research.html">Research</a>
+      <a class="nav-link cursor-target" href="projects.html" aria-current="page">Projects</a>
+      <a class="nav-link cursor-target" href="contact.html">Contact</a>
+      <a class="nav-link cursor-target" href="hobbies.html">Hobbies</a>
+    </div>
+  </nav>
+
+  <main class="page-main">
+    <header>
+      <h1>Projects</h1>
+      <p class="lede">
+        One rewriting rule — F&nbsp;→&nbsp;F[+F]F[−F]F — grown for four generations.
+        Each glowing branch tip holds a project; the full list lives below the tree.
+      </p>
+    </header>
+
+    <!-- L-system tree stage. ltree.js builds the path from js/curves.js and pins
+         a node button on a branch tip per project below. -->
+    <div class="viz tree-stage" id="tree-stage" aria-hidden="true">
+      <svg id="tree-svg" preserveAspectRatio="xMidYMax meet"><path id="tree-path" d="" /></svg>
+      <div class="tree-popover glass-card" id="tree-popover" hidden></div>
+    </div>
+
+    <section class="page-section" aria-labelledby="list-h">
+      <h2 id="list-h">The list</h2>
+      <ul class="project-list" id="project-list">
+        <li class="glass-card" data-project>
+          <h3>General-education course project <span class="badge">In progress</span></h3>
+          <p>A non-math project from a GE course. Description coming once it wraps up.</p>
+        </li>
+        <li class="glass-card" data-project>
+          <h3>Early works <span class="badge">In progress</span></h3>
+          <p>Projects from middle and high school, being dug out of old folders and written up.</p>
+        </li>
+        <li class="glass-card" data-project>
+          <h3>ΛZΛLEΛ <span class="badge">In progress</span></h3>
+          <p>
+            A self-hosted multi-model AI gateway — LiteLLM + Open WebUI behind a Caddy
+            reverse proxy. <a class="cursor-target" href="#" aria-disabled="true">Notes to follow.</a>
+          </p>
+        </li>
+        <li class="glass-card" data-project>
+          <h3>More on the way <span class="badge">In progress</span></h3>
+          <p>New branches grow every season; entries will be added as they take shape.</p>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="page-footer">
+      <span>Argonriel — Mathematical Garden</span>
+      <a class="cursor-target" href="index.html">← Back to the garden</a>
+    </footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/target-cursor.js"></script>
+  <script type="module" src="js/ltree.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research — Argonriel</title>
+  <meta name="description" content="Research: the Fermi–Pasta–Ulam–Tsingou problem, symplectic integration, and collaborations in progress." />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+  <link rel="stylesheet" href="css/research.css" />
+</head>
+
+<body>
+  <nav class="site-nav" aria-label="Site">
+    <button class="nav-toggle cursor-target" type="button" aria-expanded="false" aria-controls="nav-panel">
+      <span aria-hidden="true">Λ</span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <div class="nav-panel" id="nav-panel">
+      <a class="nav-link cursor-target" href="index.html">Home</a>
+      <a class="nav-link cursor-target" href="research.html" aria-current="page">Research</a>
+      <a class="nav-link cursor-target" href="projects.html">Projects</a>
+      <a class="nav-link cursor-target" href="contact.html">Contact</a>
+      <a class="nav-link cursor-target" href="hobbies.html">Hobbies</a>
+    </div>
+  </nav>
+
+  <main class="page-main">
+    <header>
+      <h1>Research</h1>
+      <p class="lede">
+        Simple rules, long memories: I study how nonlinear systems move energy around —
+        and how to simulate them without lying about it.
+      </p>
+    </header>
+
+    <section class="page-section" aria-labelledby="fput-h">
+      <h2 id="fput-h">The FPUT problem <span class="badge">In progress</span></h2>
+      <p>
+        In 1955, Fermi, Pasta, Ulam and Tsingou fed energy into the lowest mode of a chain of
+        nonlinearly coupled oscillators, expecting it to spread out and thermalize. Instead the
+        energy wandered through a few low modes and then — almost entirely — came back.
+        That near-recurrence opened a line of questions about integrability, solitons, and the
+        slow road to equipartition that is still being walked today.
+      </p>
+      <p>
+        I'm studying this recurrence as a sole-author project: reproducing the classical
+        FPUT-α experiment with <strong>symplectic integrators</strong> — schemes that preserve the
+        geometric structure of Hamiltonian flow, so energy errors stay bounded over the very long
+        integration times the problem demands — and examining how recurrence quality depends on
+        lattice size, nonlinearity, and integration scheme.
+      </p>
+      <p class="section-note">
+        Concrete results, figures, and write-up will appear here once finalized.
+      </p>
+
+      <div class="viz fput-viz">
+        <canvas id="fput-canvas" width="820" height="400" role="img"
+          aria-label="Animation of energy flowing between the normal modes of an FPUT lattice"></canvas>
+        <div class="viz-bar">
+          <button id="fput-restart" class="viz-btn cursor-target" type="button">Restart</button>
+          <p class="viz-caption">
+            Live simulation: an FPUT-α chain (N = 32, α = 0.25) integrated with velocity Verlet —
+            a symplectic scheme. All energy starts in mode 1; watch it leak into modes 2–6 and drift back.
+          </p>
+        </div>
+      </div>
+      <p class="section-note js-off-note">The interactive simulation needs JavaScript; prose above tells the same story.</p>
+    </section>
+
+    <section class="page-section" aria-labelledby="collab-h">
+      <h2 id="collab-h">Collaborations</h2>
+      <p>Joint work with the ML club.</p>
+      <div class="card-grid">
+        <article class="glass-card">
+          <h3>Computer vision <span class="badge">Under review</span></h3>
+          <p>
+            A collaborative research project in computer vision, currently in double-blind
+            peer review. Details will be shared once the review process concludes.
+          </p>
+        </article>
+        <article class="glass-card">
+          <h3>Petals <span class="badge">In progress</span></h3>
+          <p>Ongoing — direction to be decided.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <span>Argonriel — Mathematical Garden</span>
+      <a class="cursor-target" href="index.html">← Back to the garden</a>
+    </footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/target-cursor.js"></script>
+  <script type="module" src="js/fput.js"></script>
+</body>
+</html>

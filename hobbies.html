@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hobbies — Argonriel</title>
+  <meta name="description" content="A knight's tour of the chessboard, and the games played off the board." />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+  <link rel="stylesheet" href="css/hobbies.css" />
+</head>
+
+<body>
+  <nav class="site-nav" aria-label="Site">
+    <button class="nav-toggle cursor-target" type="button" aria-expanded="false" aria-controls="nav-panel">
+      <span aria-hidden="true">Λ</span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <div class="nav-panel" id="nav-panel">
+      <a class="nav-link cursor-target" href="index.html">Home</a>
+      <a class="nav-link cursor-target" href="research.html">Research</a>
+      <a class="nav-link cursor-target" href="projects.html">Projects</a>
+      <a class="nav-link cursor-target" href="contact.html">Contact</a>
+      <a class="nav-link cursor-target" href="hobbies.html" aria-current="page">Hobbies</a>
+    </div>
+  </nav>
+
+  <main class="page-main">
+    <header>
+      <h1>Hobbies</h1>
+      <p class="lede">
+        The same taste as the rest of the garden: simple rules, surprising paths.
+      </p>
+    </header>
+
+    <section class="page-section" aria-labelledby="knight-h">
+      <h2 id="knight-h">A knight's tour</h2>
+      <p>
+        One knight, sixty-four squares, no square twice. The route below is computed live by
+        Warnsdorff's rule — always jump to the square with the fewest onward options —
+        and traced move by move. One greedy heuristic, one very scenic walk.
+      </p>
+      <div class="viz board-stage">
+        <svg id="board-svg" viewBox="0 0 512 512" role="img"
+          aria-label="A knight's tour: the knight's path drawn across all 64 squares of a chessboard"></svg>
+        <div class="viz-bar">
+          <button id="tour-replay" class="viz-btn cursor-target" type="button">Replay</button>
+          <p class="viz-caption" id="tour-status">Computing the tour…</p>
+        </div>
+      </div>
+      <p class="section-note js-off-note">The animated tour needs JavaScript to run.</p>
+    </section>
+
+    <!-- Reserved slot: an Eight Queens visualization will land here as a second
+         board section once the knight has settled in (SITE_SPEC §6/§8 — deferred). -->
+
+    <section class="page-section" aria-labelledby="games-h">
+      <h2 id="games-h">Off the board</h2>
+      <p>The games I actually play. This shelf is still being stocked.</p>
+      <div class="card-grid">
+        <article class="glass-card">
+          <h3>Currently playing <span class="badge">In progress</span></h3>
+          <p>Notes on what's in rotation will appear here.</p>
+        </article>
+        <article class="glass-card">
+          <h3>All-time favorites <span class="badge">In progress</span></h3>
+          <p>The ones worth replaying — list under construction.</p>
+        </article>
+        <article class="glass-card">
+          <h3>Tabletop &amp; puzzles <span class="badge">In progress</span></h3>
+          <p>Paper, dice, and combinatorics disguised as fun.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <span>Argonriel — Mathematical Garden</span>
+      <a class="cursor-target" href="index.html">← Back to the garden</a>
+    </footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/target-cursor.js"></script>
+  <script type="module" src="js/knight.js"></script>
+</body>
+</html>
