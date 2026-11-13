@@ -125,7 +125,7 @@ h3 { margin: 0; font-size: 1.04rem; font-weight: 650; line-height: 1.5; }
 
 @media (max-width: 600px) {
   .site-header, .container, .site-footer { width: calc(100% - 40px); }
-  .site-header { gap: 16px; padding-block: 20px; }
+  .site-header { gap: 16px; padding-block: 20px; flex-wrap: wrap; }
   nav { gap: 16px; font-size: 0.87rem; }
   .hero { padding-block: 42px 40px; }
   .entry-heading { display: block; }
