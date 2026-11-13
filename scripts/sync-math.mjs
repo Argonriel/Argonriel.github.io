@@ -29,6 +29,7 @@ await MathJax.init({
 if (!MathJax.tex2svgPromise) throw new Error('MathJax failed to initialize');
 MathJax.startup.document.options.enableAssistiveMml = true;
 const adaptor = MathJax.startup.adaptor;
+const networkVersion = sha256(fs.readFileSync(path.join(root, 'math/assets/network.js')) + fs.readFileSync(path.join(root, 'math/assets/network.css'))).slice(0, 12);
 const byName = new Map(notes.flatMap(n => [[n.name, n], [n.source.replace(/\.md$/, ''), n]]));
 const pdfNames = new Set(['115A_clean.pdf', '115B_clean.pdf', '131A_clean.pdf', '131B_clean.pdf', '132+notes.pdf', '132小抄儿_final.pdf']);
 const formulas = [];
@@ -115,7 +116,7 @@ function header() {
 }
 function page({title, description, url, body, search = false, network = false}) {
   return `<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${e(title)} | Jiayi Liwei</title><meta name="description" content="${e(description)}"><link rel="canonical" href="https://argonriel.com${url}"><meta property="og:type" content="website"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(description)}"><meta property="og:url" content="https://argonriel.com${url}"><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/math/assets/math.css"><link rel="stylesheet" href="/math/assets/formulas.css">${search ? '<script src="/math/assets/search.js" defer></script>' : ''}${network ? '<link rel="stylesheet" href="/math/assets/network.css"><script src="/math/assets/force.min.js" defer></script><script src="/math/assets/network.js" defer></script>' : ''}</head>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${e(title)} | Jiayi Liwei</title><meta name="description" content="${e(description)}"><link rel="canonical" href="https://argonriel.com${url}"><meta property="og:type" content="website"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(description)}"><meta property="og:url" content="https://argonriel.com${url}"><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/math/assets/math.css"><link rel="stylesheet" href="/math/assets/formulas.css">${search ? '<script src="/math/assets/search.js" defer></script>' : ''}${network ? `<link rel="stylesheet" href="/math/assets/network.css?v=${networkVersion}"><script src="/math/assets/force.min.js" defer></script><script src="/math/assets/network.js?v=${networkVersion}" defer></script>` : ''}</head>
 <body class="math-site">${header()}${body}<footer class="site-footer"><p>© 2026 Jiayi Liwei</p><p>Mathematics notes · Updated ${e(sourceDate)}</p></footer></body></html>\n`;
 }
 const courseList = active => `<nav class="course-nav" aria-label="Courses"><a href="/math/">Full network</a>${courses.map(c => `<a href="/math/courses/${c.id}/"${c.id === active ? ' aria-current="page"' : ''}><span>${c.code}</span> ${e(c.title)}</a>`).join('')}</nav>`;

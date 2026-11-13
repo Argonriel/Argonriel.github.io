@@ -61,7 +61,7 @@
       .force('collide', d3.forceCollide().radius(n => n.kind === 'course' ? 29 : 20))
       .force('x', d3.forceX(n => n.cx).strength(.025))
       .force('y', d3.forceY(n => n.cy).strength(.09))
-      .alphaDecay(.045).on('tick', drawPositions).stop();
+      .velocityDecay(.18).alphaDecay(.018).alpha(0).on('tick', drawPositions).stop();
 
     function drawPositions() {
       for (const {el, link} of edgeElements) {
@@ -260,6 +260,20 @@
     $('#browse-list-link').addEventListener('click', () => {directory.open = true;});
     const point = event => {const rect = svg.getBoundingClientRect(); return {x: event.clientX - rect.left, y: event.clientY - rect.top};};
     const world = p => ({x:(p.x - view.x) / view.k, y:(p.y - view.y) / view.k});
+    function releaseDraggedNode(cancelled = false) {
+      const node = gesture?.node;
+      if (!node) return;
+      node.fx = null; node.fy = null;
+      if (gesture.moved && !reducedMotion) {
+        // A fixed D3 node has zero velocity. Restore a bounded amount of the
+        // pointer's recent momentum so a quick release feels continuous.
+        const recent = !cancelled && performance.now() - gesture.lastMove < 100;
+        node.vx = recent ? gesture.velocity.x : 0;
+        node.vy = recent ? gesture.velocity.y : 0;
+        simulation.alpha(Math.max(simulation.alpha(), .3)).alphaTarget(0).restart();
+      } else simulation.alphaTarget(0);
+      nodeElements.get(node.id).classList.remove('is-dragged');
+    }
     function pinchGesture() {
       const [a,b] = [...pointers.values()];
       return {type:'pinch', view:{...view}, distance:Math.hypot(a.x-b.x,a.y-b.y), center:{x:(a.x+b.x)/2,y:(a.y+b.y)/2}};
@@ -270,7 +284,7 @@
       pointers.set(event.pointerId, point(event)); svg.setPointerCapture(event.pointerId);
       $('#graph-tooltip').hidden = true;
       if (pointers.size === 2) {
-        if (gesture?.node) {gesture.node.fx = null; gesture.node.fy = null; simulation.alphaTarget(0);}
+        releaseDraggedNode(true);
         gesture = pinchGesture(); return;
       }
       if (pointers.size > 2) return;
@@ -280,7 +294,10 @@
         const closest = nodes.map(n => ({node:n, distance:Math.hypot(n.x*view.k+view.x-p.x,n.y*view.k+view.y-p.y)})).sort((a,b)=>a.distance-b.distance)[0];
         node = closest?.distance <= 20 ? closest.node : undefined;
       }
-      gesture = {type:node ? 'node' : 'pan', node, start:point(event), view:{...view}, moved:false};
+      const start = point(event), anchor = world(start);
+      gesture = {type:node ? 'node' : 'pan', node, start, view:{...view}, moved:false,
+        offset:node ? {x:node.x-anchor.x,y:node.y-anchor.y} : null,
+        lastPoint:anchor, lastMove:performance.now(), velocity:{x:0,y:0}};
       if (node) {node.fx = node.x; node.fy = node.y;}
     });
     svg.addEventListener('pointermove', event => {
@@ -293,13 +310,26 @@
         setView({k,x:center.x-(gesture.center.x-gesture.view.x)*ratio,y:center.y-(gesture.center.y-gesture.view.y)*ratio}); return;
       }
       const dx=p.x-gesture.start.x, dy=p.y-gesture.start.y;
-      if (Math.hypot(dx,dy)>4) gesture.moved = true;
+      if (!gesture.moved && Math.hypot(dx,dy)>4) {
+        gesture.moved = true;
+        if (gesture.node) {
+          nodeElements.get(gesture.node.id).classList.add('is-dragged');
+          // Keep the springs active while the pointer is held, including pauses
+          // between pointer events, so the neighborhood keeps following.
+          if (!reducedMotion) simulation.alpha(Math.max(simulation.alpha(), .45)).alphaTarget(.35).restart();
+        }
+      }
       if (!gesture.moved) return;
       svg.classList.add('is-dragging');
       if (gesture.type === 'pan') setView({...view,x:gesture.view.x+dx,y:gesture.view.y+dy});
       else if (gesture.node) {
-        const target = world(p); gesture.node.fx = gesture.node.x = target.x; gesture.node.fy = gesture.node.y = target.y;
-        if (!reducedMotion) simulation.alpha(.18).alphaTarget(.025).restart();
+        const target = world(p), now = performance.now(), elapsed = Math.max(8, now-gesture.lastMove);
+        const vx=(target.x-gesture.lastPoint.x)*16.67/elapsed, vy=(target.y-gesture.lastPoint.y)*16.67/elapsed;
+        gesture.velocity.x = Math.max(-12,Math.min(12,gesture.velocity.x*.55+vx*.45));
+        gesture.velocity.y = Math.max(-12,Math.min(12,gesture.velocity.y*.55+vy*.45));
+        gesture.lastPoint = target; gesture.lastMove = now;
+        gesture.node.fx = gesture.node.x = target.x+gesture.offset.x;
+        gesture.node.fy = gesture.node.y = target.y+gesture.offset.y;
         drawPositions();
       }
     });
@@ -307,7 +337,7 @@
       if (!pointers.has(event.pointerId)) return;
       pointers.delete(event.pointerId);
       if (gesture?.node) {
-        gesture.node.fx = null; gesture.node.fy = null; simulation.alphaTarget(0);
+        releaseDraggedNode(event.type === 'pointercancel');
         if (!gesture.moved && event.type !== 'pointercancel') select(gesture.node.id, multi || event.shiftKey || event.ctrlKey || event.metaKey);
       } else if (gesture?.type === 'pan' && !gesture.moved && event.type !== 'pointercancel') clear();
       if (pointers.size === 1) gesture = {type:'pan', start:[...pointers.values()][0], view:{...view}, moved:true}; else gesture = null;
@@ -347,7 +377,20 @@
     if (location.hash === '#find-note' || location.hash === '#browse-notes') directory.open=true;
     addEventListener('popstate', () => {readUrl();paintState();showInspector();});
     addEventListener('hashchange', () => {if(['#find-note','#browse-notes'].includes(location.hash))directory.open=true;});
-    document.addEventListener('visibilitychange',()=>{if(document.hidden)simulation.stop();});
+    function cancelGesture() {
+      releaseDraggedNode(true);
+      gesture=null; pointers.clear();
+      svg.classList.remove('is-dragging');
+      simulation.alphaTarget(0);
+    }
+    addEventListener('blur',cancelGesture);
+    svg.addEventListener('lostpointercapture',event=>{
+      if(pointers.has(event.pointerId)) cancelGesture();
+    });
+    document.addEventListener('visibilitychange',()=>{
+      if(document.hidden) {cancelGesture();simulation.stop();}
+      else if(!reducedMotion && simulation.alpha()>.001) simulation.restart();
+    });
   }).catch(() => {
     $('#graph-loading').textContent = 'The network could not load. Browse the notes below.';
     directory.open=true;

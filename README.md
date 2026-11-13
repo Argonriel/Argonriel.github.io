@@ -31,6 +31,8 @@ Hover to illuminate a node and its neighbors. Click to keep them highlighted, fo
 
 The graph data and initial force layout are generated from the same Markdown as the note pages. A small, locally bundled D3 force engine handles dragging; its licenses are included in `math/assets/d3-LICENSE.txt`. The network, previews, and search use same-site files only.
 
+Node dragging keeps the spring simulation active while the pointer is held. Connected nodes follow the pull, a quick release retains a bounded amount of momentum, and the graph gradually settles afterward. Releasing a drag does not open a note or move the camera. Pointer cancellation, window blur, and hidden tabs release held nodes; idle graphs do not keep running. The reduced-motion setting still provides direct node movement without the spring animation.
+
 The source is `Argonriel/Mathematics`, maintained in the local Obsidian vault. The website is a generated reading copy; edit the Markdown in the vault, commit the intended source revision, and regenerate the site on the integration branch.
 
 The export includes the five course folders (`115A`, `115B`, `131A_Iqra`, `131B_Inwon`, `132`) and the cross-course guide `Compactness and continuity.md`. It preserves note text, English/Chinese wording, theorem callouts, TeX, wiki links, heading/block anchors, and source page references. Backlinks are derived from links between topic notes. Vault settings, review logs, practice pages, and original PDFs are not exported; PDF references appear as citations rather than broken download links.

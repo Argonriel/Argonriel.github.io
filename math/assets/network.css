@@ -44,6 +44,9 @@
 .graph-node.is-selected .node-ring, .graph-node.is-hover .node-ring, .graph-node:focus-visible .node-ring { opacity: .95; }
 .graph-node.is-selected .node-core, .graph-node.is-hover .node-core { fill: #fff0d7; fill-opacity: 1; filter: drop-shadow(0 0 8px #f2c795); }
 .graph-node.is-selected text, .graph-node.is-hover text { fill: #fff6e8; font-weight: 650; }
+.graph-node.is-dragged { cursor: grabbing; }
+.graph-node.is-dragged .node-ring { opacity: 1; stroke-width: 2; }
+.graph-node.is-dragged .node-core { fill: #fff0d7; filter: drop-shadow(0 0 10px #f2c795); }
 .labels-hidden .graph-node:not(.is-selected):not(.is-hover):not(.is-course) text { opacity: 0; }
 .graph-caption { position: absolute; top: 18px; left: 20px; display: flex; gap: 8px; align-items: center; color: #a3a1a0; font-size: .71rem; pointer-events: none; }
 .graph-live-dot { width: 5px; height: 5px; background: #b7aa91; border-radius: 50%; }
