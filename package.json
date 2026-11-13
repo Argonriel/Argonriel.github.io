@@ -1,0 +1,14 @@
+{
+  "name": "argonriel-academic-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync:math": "node scripts/sync-math.mjs",
+    "check:math": "node scripts/check-math.mjs"
+  },
+  "engines": { "node": ">=20.19" },
+  "dependencies": {
+    "markdown-it": "15.0.3",
+    "mathjax": "4.1.3"
+  }
+}

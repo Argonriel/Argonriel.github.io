@@ -1,0 +1,1222 @@
+{
+  "source": "Argonriel/Mathematics",
+  "commit": "dd2401bdd625acb9befe8b7476b9ebb855568458",
+  "date": "2026-11-12",
+  "mathjax": "4.1.3",
+  "courses": {
+    "132": 42,
+    "115a": 23,
+    "115b": 13,
+    "131a": 31,
+    "131b": 18
+  },
+  "topicNotes": 127,
+  "crossCourseGuides": 1,
+  "formulaCount": 2338,
+  "noteLinks": 849,
+  "sourceReferences": 97,
+  "pages": [
+    {
+      "source": "115A/115A.md",
+      "sha256": "9ebc0c2aaee0dd7e4ee4e9dbd91a1e88decf88acd1184175266d32fedcf89d38",
+      "url": "/math/courses/115a/",
+      "title": "115A · Linear Algebra I",
+      "isCourse": true,
+      "formulas": 3
+    },
+    {
+      "source": "115A/Adjoint.md",
+      "sha256": "1838479a9093a66a4dab82b473ee49c547636f155d5aeccfe5c7977102802d15",
+      "url": "/math/notes/115a/adjoint/",
+      "title": "Adjoint",
+      "isCourse": false,
+      "formulas": 18
+    },
+    {
+      "source": "115A/Basis and dimension.md",
+      "sha256": "015ed9c922b7594c36203b5145cd4a52ad62306195f5c4cc65e5cbf0790a5a47",
+      "url": "/math/notes/115a/basis-and-dimension/",
+      "title": "Basis and dimension",
+      "isCourse": false,
+      "formulas": 15
+    },
+    {
+      "source": "115A/Cauchy-Schwarz inequality.md",
+      "sha256": "0b6cd5b03f40324eddb4b298448e561a6d85ff77787401af041ced7cab6952fe",
+      "url": "/math/notes/115a/cauchy-schwarz-inequality/",
+      "title": "Cauchy-Schwarz inequality",
+      "isCourse": false,
+      "formulas": 10
+    },
+    {
+      "source": "115A/Change of basis and similarity.md",
+      "sha256": "c9cee2b0818ce743c96dcadbf972a715a95986cc2f2ba0e81d80fb494570fdb3",
+      "url": "/math/notes/115a/change-of-basis-and-similarity/",
+      "title": "Change of basis and similarity",
+      "isCourse": false,
+      "formulas": 16
+    },
+    {
+      "source": "115A/Determinant and trace.md",
+      "sha256": "9851176cba63e0ac57e201c0b970bde6f0938dac0312e4915d6fa94d1c44d3c9",
+      "url": "/math/notes/115a/determinant-and-trace/",
+      "title": "Determinant and trace",
+      "isCourse": false,
+      "formulas": 19
+    },
+    {
+      "source": "115A/Diagonalization.md",
+      "sha256": "15dda0dc9ef75459253b5fcf27d00b7fe8695f4f430f12edf61575e1c9de3a7f",
+      "url": "/math/notes/115a/diagonalization/",
+      "title": "Diagonalization",
+      "isCourse": false,
+      "formulas": 23
+    },
+    {
+      "source": "115A/Dual space.md",
+      "sha256": "a5ef84e89a9478f8df54c973af7df4b6d2087616bd8a5aca8a7c219cb93f2db6",
+      "url": "/math/notes/115a/dual-space/",
+      "title": "Dual space",
+      "isCourse": false,
+      "formulas": 16
+    },
+    {
+      "source": "115A/Eigenvalues and eigenspaces.md",
+      "sha256": "1d5bd1503c1b747d1a1123e985ed183591745e853201a39336ea118d68795951",
+      "url": "/math/notes/115a/eigenvalues-and-eigenspaces/",
+      "title": "Eigenvalues and eigenspaces",
+      "isCourse": false,
+      "formulas": 25
+    },
+    {
+      "source": "115A/Gram-Schmidt.md",
+      "sha256": "b69ee8949ed4616470863a32b70fb5d98fbefd81f3223811b4f8256e8f5385dd",
+      "url": "/math/notes/115a/gram-schmidt/",
+      "title": "Gram-Schmidt",
+      "isCourse": false,
+      "formulas": 14
+    },
+    {
+      "source": "115A/Inner product.md",
+      "sha256": "acbad3f1f4eb3a1cfb36a7018c824bc8a19f5d0e0be8e551262ba54b870e240b",
+      "url": "/math/notes/115a/inner-product/",
+      "title": "Inner product",
+      "isCourse": false,
+      "formulas": 13
+    },
+    {
+      "source": "115A/Isomorphism.md",
+      "sha256": "301c5240050b623965ccdac03d0cb0f0ebc6211abb1070ab4fed24d7ab3caf9e",
+      "url": "/math/notes/115a/isomorphism/",
+      "title": "Isomorphism",
+      "isCourse": false,
+      "formulas": 10
+    },
+    {
+      "source": "115A/Kernel and image.md",
+      "sha256": "87747893373062324d756c89d70a54cad3d5024d55ef66a6a0aa5a637e37c4e8",
+      "url": "/math/notes/115a/kernel-and-image/",
+      "title": "Kernel and image",
+      "isCourse": false,
+      "formulas": 17
+    },
+    {
+      "source": "115A/Linear map.md",
+      "sha256": "312587dc28cb5572388dde66697feae1349b4f0eca37ab2342a276d5f0e39332",
+      "url": "/math/notes/115a/linear-map/",
+      "title": "Linear map",
+      "isCourse": false,
+      "formulas": 18
+    },
+    {
+      "source": "115A/Matrix representation.md",
+      "sha256": "e0b2353a4ada97b8aa7f87394e781d5eacce5e272bdf93518ef4f22027494cbb",
+      "url": "/math/notes/115a/matrix-representation/",
+      "title": "Matrix representation",
+      "isCourse": false,
+      "formulas": 15
+    },
+    {
+      "source": "115A/Normal and self-adjoint operators.md",
+      "sha256": "1b277d6c99461b5009454969661073d0f9b6e6d6e54d79f0390d3ea10fd8d323",
+      "url": "/math/notes/115a/normal-and-self-adjoint-operators/",
+      "title": "Normal and self-adjoint operators",
+      "isCourse": false,
+      "formulas": 17
+    },
+    {
+      "source": "115A/Orthogonal complement.md",
+      "sha256": "9c2a96ad767755f35debefa9c8632812407c2f2195a261e0bbc1c8a0157d6a28",
+      "url": "/math/notes/115a/orthogonal-complement/",
+      "title": "Orthogonal complement",
+      "isCourse": false,
+      "formulas": 21
+    },
+    {
+      "source": "115A/Orthogonal projection.md",
+      "sha256": "e948bb7a9983ea1a1df722ea4539000c05fa38a4b772c2c026a072fc89ba13b9",
+      "url": "/math/notes/115a/orthogonal-projection/",
+      "title": "Orthogonal projection",
+      "isCourse": false,
+      "formulas": 23
+    },
+    {
+      "source": "115A/Orthonormal basis.md",
+      "sha256": "81274b5225983ea2160e390456c21e1d19082549f7bf04335f08bcbe4b3e9cd4",
+      "url": "/math/notes/115a/orthonormal-basis/",
+      "title": "Orthonormal basis",
+      "isCourse": false,
+      "formulas": 14
+    },
+    {
+      "source": "115A/Rank-nullity theorem.md",
+      "sha256": "00bf707267ac9aa514bdc89aac111988f3d5ff498f56bd2694b084bf73de18d9",
+      "url": "/math/notes/115a/rank-nullity-theorem/",
+      "title": "Rank-nullity theorem",
+      "isCourse": false,
+      "formulas": 20
+    },
+    {
+      "source": "115A/Span and linear independence.md",
+      "sha256": "ac385c1c8b51ae96e34381f8b966a84206891ea0bf0e4f3d221db7d7c62119e3",
+      "url": "/math/notes/115a/span-and-linear-independence/",
+      "title": "Span and linear independence",
+      "isCourse": false,
+      "formulas": 10
+    },
+    {
+      "source": "115A/Spectral theorem.md",
+      "sha256": "98db02b9a378b97b3dfa9f5c3db9525044c0749556c113afdc58affdf49e0c6c",
+      "url": "/math/notes/115a/spectral-theorem/",
+      "title": "Spectral theorem",
+      "isCourse": false,
+      "formulas": 12
+    },
+    {
+      "source": "115A/Subspace.md",
+      "sha256": "5eb1f0ac5b7af5a67ec7d3496016c9feed3f3b789e7ad48e5075963f3d1c8962",
+      "url": "/math/notes/115a/subspace/",
+      "title": "Subspace",
+      "isCourse": false,
+      "formulas": 14
+    },
+    {
+      "source": "115A/Vector space.md",
+      "sha256": "5376b2320ee26454d3ae29083658dea3083f4fc9c739d4a96c44976cb4f3c492",
+      "url": "/math/notes/115a/vector-space/",
+      "title": "Vector space",
+      "isCourse": false,
+      "formulas": 23
+    },
+    {
+      "source": "115B/115B.md",
+      "sha256": "c6be98e528cdb0d180043b178ca1c965b2c126e4803ae2d984a726305fb0a7cc",
+      "url": "/math/courses/115b/",
+      "title": "115B · Linear Algebra II",
+      "isCourse": true,
+      "formulas": 0
+    },
+    {
+      "source": "115B/Cayley-Hamilton theorem.md",
+      "sha256": "5c752507c4dfc43c67f4cb2def74e3edd632ef71c30fbb32383a7bb29c7342cd",
+      "url": "/math/notes/115b/cayley-hamilton-theorem/",
+      "title": "Cayley-Hamilton theorem",
+      "isCourse": false,
+      "formulas": 20
+    },
+    {
+      "source": "115B/Cyclic subspace.md",
+      "sha256": "5fcbda7c573a10b61e5b7623e1e247e2aaba12a57e1eaf62f47bd4954affa89c",
+      "url": "/math/notes/115b/cyclic-subspace/",
+      "title": "Cyclic subspace",
+      "isCourse": false,
+      "formulas": 25
+    },
+    {
+      "source": "115B/Direct sum.md",
+      "sha256": "02514a56c4651b23ab501a42d3cc98dc6da48d083159ea7b70a1ee5319bed453",
+      "url": "/math/notes/115b/direct-sum/",
+      "title": "Direct sum",
+      "isCourse": false,
+      "formulas": 14
+    },
+    {
+      "source": "115B/Dual basis and dual map.md",
+      "sha256": "b477d3536853e9401b34d0b028eb018d707579d1c07d744911844a4a19ff8a46",
+      "url": "/math/notes/115b/dual-basis-and-dual-map/",
+      "title": "Dual basis and dual map",
+      "isCourse": false,
+      "formulas": 26
+    },
+    {
+      "source": "115B/Generalized eigenspace.md",
+      "sha256": "e8aaddd8d6d4f643e497769d9bc98ff8ccf60e65cab37610e77ddcd379d2e25e",
+      "url": "/math/notes/115b/generalized-eigenspace/",
+      "title": "Generalized eigenspace",
+      "isCourse": false,
+      "formulas": 23
+    },
+    {
+      "source": "115B/Invariant subspace.md",
+      "sha256": "97c03fcf42f571e2ab356cb0ce006ce8ab42af3e0c5e5c23cd520ea73843c19d",
+      "url": "/math/notes/115b/invariant-subspace/",
+      "title": "Invariant subspace",
+      "isCourse": false,
+      "formulas": 22
+    },
+    {
+      "source": "115B/Jordan canonical form.md",
+      "sha256": "b445dc9bb86bc91ea64df41ca3c4514e214560f423e4e17f48ef2156614ea1ba",
+      "url": "/math/notes/115b/jordan-canonical-form/",
+      "title": "Jordan canonical form",
+      "isCourse": false,
+      "formulas": 24
+    },
+    {
+      "source": "115B/Minimal polynomial.md",
+      "sha256": "d2dbd56a550d5300f66fdacbb8ce45303f41f67280dd4117ae2a0accc33e5481",
+      "url": "/math/notes/115b/minimal-polynomial/",
+      "title": "Minimal polynomial",
+      "isCourse": false,
+      "formulas": 29
+    },
+    {
+      "source": "115B/Positive definite matrix.md",
+      "sha256": "c68be76d6d5916962a63a3e9c5d130b3811d0bdb01107207895bc87b18889643",
+      "url": "/math/notes/115b/positive-definite-matrix/",
+      "title": "Positive definite matrix",
+      "isCourse": false,
+      "formulas": 22
+    },
+    {
+      "source": "115B/Quadratic form.md",
+      "sha256": "9a049cccdef1c9e06a6bfd47ef2abc2d38ff8136b11393cbb46dd902d4f3f7be",
+      "url": "/math/notes/115b/quadratic-form/",
+      "title": "Quadratic form",
+      "isCourse": false,
+      "formulas": 17
+    },
+    {
+      "source": "115B/Quotient space.md",
+      "sha256": "7d043466e4db2dea28bbbe44c40c3271771bec6644fb1236ee9d4f56db9b98b7",
+      "url": "/math/notes/115b/quotient-space/",
+      "title": "Quotient space",
+      "isCourse": false,
+      "formulas": 19
+    },
+    {
+      "source": "115B/Sylvester law of inertia.md",
+      "sha256": "f5eb5522f23b747782880724a4a06dafc6e82ac8d462d4a8bb64d03b91c4c4bb",
+      "url": "/math/notes/115b/sylvester-law-of-inertia/",
+      "title": "Sylvester law of inertia",
+      "isCourse": false,
+      "formulas": 14
+    },
+    {
+      "source": "115B/Unitary and orthogonal operators.md",
+      "sha256": "9dca390e31e6d2c054a2867e087559d6413c9be70ba08331e73163ac6a36b5bb",
+      "url": "/math/notes/115b/unitary-and-orthogonal-operators/",
+      "title": "Unitary and orthogonal operators",
+      "isCourse": false,
+      "formulas": 17
+    },
+    {
+      "source": "131A_Iqra/131A.md",
+      "sha256": "c089bf83f165d6c36d68d0b2ab7c66e85d914dcbc7425814dfebb9f148eb56c3",
+      "url": "/math/courses/131a/",
+      "title": "131A · Real Analysis I",
+      "isCourse": true,
+      "formulas": 0
+    },
+    {
+      "source": "131A_Iqra/Absolute convergence.md",
+      "sha256": "1eb4c4faa390e65977dca7ddbd5299807bb2d332e891e1053a17d13e9de7bdfb",
+      "url": "/math/notes/131a/absolute-convergence/",
+      "title": "Absolute convergence",
+      "isCourse": false,
+      "formulas": 7
+    },
+    {
+      "source": "131A_Iqra/Alternating Series Test.md",
+      "sha256": "09a9009b42f35abac267e08838e663d8f126be96080906b851f2217fba88a2b0",
+      "url": "/math/notes/131a/alternating-series-test/",
+      "title": "Alternating Series Test",
+      "isCourse": false,
+      "formulas": 10
+    },
+    {
+      "source": "131A_Iqra/Bolzano–Weierstrass Theorem.md",
+      "sha256": "ec86d0e5377a292d4d022716635f7a1c7a7ebb73caba90f4c40efd77afe4429c",
+      "url": "/math/notes/131a/bolzano-weierstrass-theorem/",
+      "title": "Bolzano–Weierstrass Theorem",
+      "isCourse": false,
+      "formulas": 11
+    },
+    {
+      "source": "131A_Iqra/Cauchy criterion for series.md",
+      "sha256": "58766081f2451b75ec21d26a2cd87c1f1e3fac1d49815e610ec186c98fee038f",
+      "url": "/math/notes/131a/cauchy-criterion-for-series/",
+      "title": "Cauchy criterion for series",
+      "isCourse": false,
+      "formulas": 6
+    },
+    {
+      "source": "131A_Iqra/Cauchy sequence.md",
+      "sha256": "7562f8620fed1f26f55ca740f02ed24bc6b1778104d0b76acafa665f4abb392c",
+      "url": "/math/notes/131a/cauchy-sequence/",
+      "title": "Cauchy sequence",
+      "isCourse": false,
+      "formulas": 10
+    },
+    {
+      "source": "131A_Iqra/Compact set.md",
+      "sha256": "94b01de6b6fb3d3df0bfb95b753bbdbc9a28328e959e2eca9e841a83c1c45c3e",
+      "url": "/math/notes/131a/compact-set/",
+      "title": "Compact set",
+      "isCourse": false,
+      "formulas": 24
+    },
+    {
+      "source": "131A_Iqra/Comparison test.md",
+      "sha256": "a8e68dfeb1fd09eaa1fbf17b5478b47c21288704b54179541ebca6a46edd2fff",
+      "url": "/math/notes/131a/comparison-test/",
+      "title": "Comparison test",
+      "isCourse": false,
+      "formulas": 11
+    },
+    {
+      "source": "131A_Iqra/Completeness Axiom.md",
+      "sha256": "30f24a76b646f87828e9ce33dad1c9dd277d3d755b79ced7c2b5f1d36e837189",
+      "url": "/math/notes/131a/completeness-axiom/",
+      "title": "Completeness Axiom",
+      "isCourse": false,
+      "formulas": 9
+    },
+    {
+      "source": "131A_Iqra/Continuity.md",
+      "sha256": "6760e5a265017c1ac13437fba84dfbaec99973bdf334d9b8844724250009179b",
+      "url": "/math/notes/131a/continuity/",
+      "title": "Continuity",
+      "isCourse": false,
+      "formulas": 31
+    },
+    {
+      "source": "131A_Iqra/Convergence of a sequence.md",
+      "sha256": "74783f68a0e45a08b8ea273e1273614e90327c502d8ed0bfefb8e352a45b8c3e",
+      "url": "/math/notes/131a/convergence-of-a-sequence/",
+      "title": "Convergence of a sequence",
+      "isCourse": false,
+      "formulas": 12
+    },
+    {
+      "source": "131A_Iqra/Dedekind cut.md",
+      "sha256": "6c28f45d0e821c160913cc09694f08a7fd1ca153656b75cfb9291fa5598fa156",
+      "url": "/math/notes/131a/dedekind-cut/",
+      "title": "Dedekind cut",
+      "isCourse": false,
+      "formulas": 13
+    },
+    {
+      "source": "131A_Iqra/Derivative.md",
+      "sha256": "b4374881d79ffc6c36409db2a016204695b313865c3b34a0aa638006c1ce3342",
+      "url": "/math/notes/131a/derivative/",
+      "title": "Derivative",
+      "isCourse": false,
+      "formulas": 18
+    },
+    {
+      "source": "131A_Iqra/Generalized MVT.md",
+      "sha256": "cd4a37cfbebff398f7e4512846b45258cf5d9201b66127738510c0d633b81058",
+      "url": "/math/notes/131a/generalized-mvt/",
+      "title": "Generalized MVT",
+      "isCourse": false,
+      "formulas": 19
+    },
+    {
+      "source": "131A_Iqra/IVT.md",
+      "sha256": "2f47a1716cda25bfd24c818542098c12aa74c27cadc8177d22531b3d9b8d489d",
+      "url": "/math/notes/131a/ivt/",
+      "title": "IVT",
+      "isCourse": false,
+      "formulas": 8
+    },
+    {
+      "source": "131A_Iqra/Integral test.md",
+      "sha256": "f6bb236b71e68d9994bf1ca92910408b2d485d8c616c3cea17a5382bbfe0669a",
+      "url": "/math/notes/131a/integral-test/",
+      "title": "Integral test",
+      "isCourse": false,
+      "formulas": 10
+    },
+    {
+      "source": "131A_Iqra/Interior, closure, boundary.md",
+      "sha256": "596990b46e49cc8eaf5f1c85552e0bc2c8b360d2aeaa865186a16ff31ce9c690",
+      "url": "/math/notes/131a/interior-closure-boundary/",
+      "title": "Interior, closure, boundary",
+      "isCourse": false,
+      "formulas": 22
+    },
+    {
+      "source": "131A_Iqra/Local extrema.md",
+      "sha256": "744d7c26eb5fe9363b72783c7059940f0b557432a7689aba5134d074010be5f5",
+      "url": "/math/notes/131a/local-extrema/",
+      "title": "Local extrema",
+      "isCourse": false,
+      "formulas": 20
+    },
+    {
+      "source": "131A_Iqra/MVT.md",
+      "sha256": "509f95838f8d41697f501abdcbcb62b7dce30cbf7e0c772fdcfc6a195edce011",
+      "url": "/math/notes/131a/mvt/",
+      "title": "MVT",
+      "isCourse": false,
+      "formulas": 13
+    },
+    {
+      "source": "131A_Iqra/Monotone Convergence Theorem.md",
+      "sha256": "882e8db3a693ddc30d75457e17b1b2e5aefe63aa9a8a52c768d953cf03137f28",
+      "url": "/math/notes/131a/monotone-convergence-theorem/",
+      "title": "Monotone Convergence Theorem",
+      "isCourse": false,
+      "formulas": 9
+    },
+    {
+      "source": "131A_Iqra/Nested Closed Sets Theorem.md",
+      "sha256": "9afd37a689eebd6b97ace24d0b4d3b3c8d529b371e18c89e598f9886a37730a0",
+      "url": "/math/notes/131a/nested-closed-sets-theorem/",
+      "title": "Nested Closed Sets Theorem",
+      "isCourse": false,
+      "formulas": 13
+    },
+    {
+      "source": "131A_Iqra/Open & closed.md",
+      "sha256": "298ea81cd0ca04eda5e9319b72a2bb82673da6585577033f7782dcff86aef8e8",
+      "url": "/math/notes/131a/open-and-closed/",
+      "title": "Open & closed",
+      "isCourse": false,
+      "formulas": 16
+    },
+    {
+      "source": "131A_Iqra/Partial sums.md",
+      "sha256": "f5d68249de48edb50cbbef20d42140e46eeaa3a36ff08ea60efa2cd02a70617e",
+      "url": "/math/notes/131a/partial-sums/",
+      "title": "Partial sums",
+      "isCourse": false,
+      "formulas": 8
+    },
+    {
+      "source": "131A_Iqra/Pointwise convergence.md",
+      "sha256": "c425ce4f8fd733e361c17383a7bb7e1c4974240d1fbeca515eec6c6f558744a4",
+      "url": "/math/notes/131a/pointwise-convergence/",
+      "title": "Pointwise convergence",
+      "isCourse": false,
+      "formulas": 12
+    },
+    {
+      "source": "131A_Iqra/Ratio test.md",
+      "sha256": "6c01cac80a512c3db26d0c39c9b69d9e5ca5851e329b7f17c51c86cebb33beca",
+      "url": "/math/notes/131a/ratio-test/",
+      "title": "Ratio test",
+      "isCourse": false,
+      "formulas": 14
+    },
+    {
+      "source": "131A_Iqra/Rolle's Theorem.md",
+      "sha256": "c5c7c8f691118c2770dd256df2ef0b5b2e82528f86a143836c50e1682d797bab",
+      "url": "/math/notes/131a/rolles-theorem/",
+      "title": "Rolle's Theorem",
+      "isCourse": false,
+      "formulas": 10
+    },
+    {
+      "source": "131A_Iqra/Root test.md",
+      "sha256": "e3656168ea0fae5823dd9a8d85abb3ac91dcab1d33514d4ef53b16daa8a8e94e",
+      "url": "/math/notes/131a/root-test/",
+      "title": "Root test",
+      "isCourse": false,
+      "formulas": 14
+    },
+    {
+      "source": "131A_Iqra/Subsequence.md",
+      "sha256": "5e589f6c2fb825eac0215ec0bda2f2243958a54bb57c3b62b372351356b3bb4f",
+      "url": "/math/notes/131a/subsequence/",
+      "title": "Subsequence",
+      "isCourse": false,
+      "formulas": 20
+    },
+    {
+      "source": "131A_Iqra/Sup & inf.md",
+      "sha256": "923c5aecd3d06f0bbca9e71f00257b488cd67f341b3b26ef3f66d43429d89caf",
+      "url": "/math/notes/131a/sup-and-inf/",
+      "title": "Sup & inf",
+      "isCourse": false,
+      "formulas": 15
+    },
+    {
+      "source": "131A_Iqra/Uniform continuity.md",
+      "sha256": "0016b37938fafe022a73bdae5d3919a3258a47653fa6f5df8c56b7fe7715ab54",
+      "url": "/math/notes/131a/uniform-continuity/",
+      "title": "Uniform continuity",
+      "isCourse": false,
+      "formulas": 30
+    },
+    {
+      "source": "131A_Iqra/Uniform convergence.md",
+      "sha256": "2c760e33899e3456c4aa93ec01042932f7502c0da8a30f023354ec20e6daac75",
+      "url": "/math/notes/131a/uniform-convergence/",
+      "title": "Uniform convergence",
+      "isCourse": false,
+      "formulas": 21
+    },
+    {
+      "source": "131A_Iqra/limsup & liminf.md",
+      "sha256": "d53502726602cc773db37174db529293c9c0f1029026057e8e4d078434423151",
+      "url": "/math/notes/131a/limsup-and-liminf/",
+      "title": "limsup & liminf",
+      "isCourse": false,
+      "formulas": 15
+    },
+    {
+      "source": "131B_Inwon/131B.md",
+      "sha256": "9ecfe7f6e74a25b7ed2b82fdd3cf78df16d75bf011aa2f7a188fe19b0b7cd6eb",
+      "url": "/math/courses/131b/",
+      "title": "131B · Real Analysis II",
+      "isCourse": true,
+      "formulas": 1
+    },
+    {
+      "source": "131B_Inwon/Completeness of a metric space.md",
+      "sha256": "4a7c72e5265ca749856bc2b3d4f5c9f7a203bd7d78d96df29146083d44d2c18d",
+      "url": "/math/notes/131b/completeness-of-a-metric-space/",
+      "title": "Completeness of a metric space",
+      "isCourse": false,
+      "formulas": 24
+    },
+    {
+      "source": "131B_Inwon/Connectedness.md",
+      "sha256": "6eb4db861a5b7fd39e97f7f38af28bbf28a183cfc1f4589a3813e677215f321e",
+      "url": "/math/notes/131b/connectedness/",
+      "title": "Connectedness",
+      "isCourse": false,
+      "formulas": 25
+    },
+    {
+      "source": "131B_Inwon/Continuity in metric spaces.md",
+      "sha256": "b22d832ad64d92643a8387d948db65e8a79e893a090f6f86bdec0fbd6684d463",
+      "url": "/math/notes/131b/continuity-in-metric-spaces/",
+      "title": "Continuity in metric spaces",
+      "isCourse": false,
+      "formulas": 22
+    },
+    {
+      "source": "131B_Inwon/Convolution.md",
+      "sha256": "70db29a9551c4f605bec65a491d3fe85f647773d2af8285893232ea024b64eac",
+      "url": "/math/notes/131b/convolution/",
+      "title": "Convolution",
+      "isCourse": false,
+      "formulas": 28
+    },
+    {
+      "source": "131B_Inwon/Fourier coefficients.md",
+      "sha256": "11308ff6dbb183b87cf1dbe1d4a88acb4afaaa114f5373a6508eee824c9747fc",
+      "url": "/math/notes/131b/fourier-coefficients/",
+      "title": "Fourier coefficients",
+      "isCourse": false,
+      "formulas": 19
+    },
+    {
+      "source": "131B_Inwon/Fourier theorem.md",
+      "sha256": "d8ecdf41d17074f1073e7052ab6a32acbdf15bd34f6d6dc8e74c395806498bf2",
+      "url": "/math/notes/131b/fourier-theorem/",
+      "title": "Fourier theorem",
+      "isCourse": false,
+      "formulas": 23
+    },
+    {
+      "source": "131B_Inwon/Fundamental Theorem of Calculus.md",
+      "sha256": "04f5f6d0273409b212a0dc507cd6a10ce65aba28c1f3b43acfd5877eb64cceee",
+      "url": "/math/notes/131b/fundamental-theorem-of-calculus/",
+      "title": "Fundamental Theorem of Calculus",
+      "isCourse": false,
+      "formulas": 21
+    },
+    {
+      "source": "131B_Inwon/L2 space.md",
+      "sha256": "ef9247cc44f36749a1c3fd07890b5eb6b2c820c1be96974617951d7547e28d62",
+      "url": "/math/notes/131b/l2-space/",
+      "title": "L2 space",
+      "isCourse": false,
+      "formulas": 21
+    },
+    {
+      "source": "131B_Inwon/Lipschitz continuity.md",
+      "sha256": "4c3fd950ff2ddda5631da9f9750cf81159a1a3f3549327deb5226ba7320c5a0b",
+      "url": "/math/notes/131b/lipschitz-continuity/",
+      "title": "Lipschitz continuity",
+      "isCourse": false,
+      "formulas": 19
+    },
+    {
+      "source": "131B_Inwon/Metric space.md",
+      "sha256": "03a39be6fa0fad35f56833c0b3614533fcd874fa9d12e35b652982968e8f46c0",
+      "url": "/math/notes/131b/metric-space/",
+      "title": "Metric space",
+      "isCourse": false,
+      "formulas": 21
+    },
+    {
+      "source": "131B_Inwon/Parseval identity.md",
+      "sha256": "c07b57713c0c637bada505246bfe80199fbcd83c03a9f438008849af6e603444",
+      "url": "/math/notes/131b/parseval-identity/",
+      "title": "Parseval identity",
+      "isCourse": false,
+      "formulas": 17
+    },
+    {
+      "source": "131B_Inwon/Power series.md",
+      "sha256": "c5fdcd597ecad468018443173346ea8239ee7d8c88a30921f4f3880418fad607",
+      "url": "/math/notes/131b/power-series/",
+      "title": "Power series",
+      "isCourse": false,
+      "formulas": 20
+    },
+    {
+      "source": "131B_Inwon/Riemann integral.md",
+      "sha256": "fead815cbf69fb8bc4ff35eb4ce72fe58274a66e2b2ed17aad59d1007042f987",
+      "url": "/math/notes/131b/riemann-integral/",
+      "title": "Riemann integral",
+      "isCourse": false,
+      "formulas": 11
+    },
+    {
+      "source": "131B_Inwon/Spaces of functions.md",
+      "sha256": "4dfc7b8e26cb772f11a852588c247a1954f47c3da20f418629a8d7ab3269f686",
+      "url": "/math/notes/131b/spaces-of-functions/",
+      "title": "Spaces of functions",
+      "isCourse": false,
+      "formulas": 19
+    },
+    {
+      "source": "131B_Inwon/Taylor series.md",
+      "sha256": "7d87ebd94624b4c2d215270537c8e1c73ddddb317c9500807b681f38880be8a6",
+      "url": "/math/notes/131b/taylor-series/",
+      "title": "Taylor series",
+      "isCourse": false,
+      "formulas": 31
+    },
+    {
+      "source": "131B_Inwon/Uniform convergence theorems.md",
+      "sha256": "2877d6835e16edb160ba7451b285259375b6854baad00fc21b35f32730ff3198",
+      "url": "/math/notes/131b/uniform-convergence-theorems/",
+      "title": "Uniform convergence theorems",
+      "isCourse": false,
+      "formulas": 40
+    },
+    {
+      "source": "131B_Inwon/Weierstrass Approximation Theorem.md",
+      "sha256": "aa3420e858e112dd3f1691470b2d9c4e69c14c62355861e6cf4f4d0486f382ed",
+      "url": "/math/notes/131b/weierstrass-approximation-theorem/",
+      "title": "Weierstrass Approximation Theorem",
+      "isCourse": false,
+      "formulas": 28
+    },
+    {
+      "source": "131B_Inwon/Weierstrass M-test.md",
+      "sha256": "4e7f6a03c44aed39b435aef7465fc88ed6c10682b4ac0441b83f0e472a121ef8",
+      "url": "/math/notes/131b/weierstrass-m-test/",
+      "title": "Weierstrass M-test",
+      "isCourse": false,
+      "formulas": 13
+    },
+    {
+      "source": "132/132.md",
+      "sha256": "bc614fbec091e697de373f6023f3dee1ff1ad1e663994ace97104cd3428fc6ab",
+      "url": "/math/courses/132/",
+      "title": "132 · Complex Analysis",
+      "isCourse": true,
+      "formulas": 2
+    },
+    {
+      "source": "132/Branches of logarithms and powers.md",
+      "sha256": "3f8bb3fdc666778f0039a05dff9bd61da64b108cc4c6d33a5a718861936ae2db",
+      "url": "/math/notes/132/branches-of-logarithms-and-powers/",
+      "title": "Branches of logarithms and powers",
+      "isCourse": false,
+      "formulas": 26
+    },
+    {
+      "source": "132/Cauchy estimates.md",
+      "sha256": "ab6523b8eddfa186dce0fad2cdc5ce456d26a13e4cada3ee3f8e81e53b5b9937",
+      "url": "/math/notes/132/cauchy-estimates/",
+      "title": "Cauchy estimates",
+      "isCourse": false,
+      "formulas": 28
+    },
+    {
+      "source": "132/Cauchy integral formula.md",
+      "sha256": "9013f252e593c59ee1662c71d5cd828e64232ad7dae495078d236c9d713e3861",
+      "url": "/math/notes/132/cauchy-integral-formula/",
+      "title": "Cauchy integral formula",
+      "isCourse": false,
+      "formulas": 17
+    },
+    {
+      "source": "132/Cauchy's theorem.md",
+      "sha256": "851b763e041de5572ec6b76908aa556a6158ede5e4b92d38168d0a2f336ca5e8",
+      "url": "/math/notes/132/cauchys-theorem/",
+      "title": "Cauchy's theorem",
+      "isCourse": false,
+      "formulas": 16
+    },
+    {
+      "source": "132/Cauchy-Riemann equations.md",
+      "sha256": "6ad1b485ec1be78db0925ae7adb18fcc15c6706dc8da3709c9905d6fcd5bf752",
+      "url": "/math/notes/132/cauchy-riemann-equations/",
+      "title": "Cauchy-Riemann equations",
+      "isCourse": false,
+      "formulas": 23
+    },
+    {
+      "source": "132/Complex exponential and trigonometric functions.md",
+      "sha256": "2b0524fa82def5ea717351903c856f383079e53d9fa26c298f89f8b4a5580690",
+      "url": "/math/notes/132/complex-exponential-and-trigonometric-functions/",
+      "title": "Complex exponential and trigonometric functions",
+      "isCourse": false,
+      "formulas": 16
+    },
+    {
+      "source": "132/Complex inverse function theorem.md",
+      "sha256": "93e3e3526c851bbeb2d6c9edd525bd996702eda246eaaafee0d56d5722755a22",
+      "url": "/math/notes/132/complex-inverse-function-theorem/",
+      "title": "Complex inverse function theorem",
+      "isCourse": false,
+      "formulas": 19
+    },
+    {
+      "source": "132/Complex limits and continuity.md",
+      "sha256": "d59df0eb2baa7a7d215a5ebf6c74e6824aed2d9831dd664b176b8415cbe1d2f0",
+      "url": "/math/notes/132/complex-limits-and-continuity/",
+      "title": "Complex limits and continuity",
+      "isCourse": false,
+      "formulas": 17
+    },
+    {
+      "source": "132/Complex numbers and polar form.md",
+      "sha256": "56815a41a0eadbb69996197d8fb4a90d6f22a653d162a0a47dd762955c0df354",
+      "url": "/math/notes/132/complex-numbers-and-polar-form/",
+      "title": "Complex numbers and polar form",
+      "isCourse": false,
+      "formulas": 24
+    },
+    {
+      "source": "132/Complex power series.md",
+      "sha256": "893bfd2a65818338c2473f688d26d1820577e25c573328a40ae20d771a440054",
+      "url": "/math/notes/132/complex-power-series/",
+      "title": "Complex power series",
+      "isCourse": false,
+      "formulas": 20
+    },
+    {
+      "source": "132/Contour integrals.md",
+      "sha256": "4a76dcebb362bd4fb9f8c7a6d312ae7d20d751e99c40d8ffde64311b2ea3c902",
+      "url": "/math/notes/132/contour-integrals/",
+      "title": "Contour integrals",
+      "isCourse": false,
+      "formulas": 17
+    },
+    {
+      "source": "132/Domains and simple connectedness.md",
+      "sha256": "38647ca8a934f9b57f92047a8d582e2fd4051eb12120d5175879390f0d85fee1",
+      "url": "/math/notes/132/domains-and-simple-connectedness/",
+      "title": "Domains and simple connectedness",
+      "isCourse": false,
+      "formulas": 12
+    },
+    {
+      "source": "132/Essential singularities.md",
+      "sha256": "88d060d744686dc6eb6de78472c4389f659c8b5469c220adb3318006a118027c",
+      "url": "/math/notes/132/essential-singularities/",
+      "title": "Essential singularities",
+      "isCourse": false,
+      "formulas": 19
+    },
+    {
+      "source": "132/Fundamental theorem of algebra.md",
+      "sha256": "cb13bc5d429577b6bafec8fa07dbd283e4435f025da9d6ab84c07741b04a7e2a",
+      "url": "/math/notes/132/fundamental-theorem-of-algebra/",
+      "title": "Fundamental theorem of algebra",
+      "isCourse": false,
+      "formulas": 11
+    },
+    {
+      "source": "132/Goursat's theorem.md",
+      "sha256": "416670bcd7a8963b38df85715681c02be783474a3884401fa41abc93285db511",
+      "url": "/math/notes/132/goursats-theorem/",
+      "title": "Goursat's theorem",
+      "isCourse": false,
+      "formulas": 14
+    },
+    {
+      "source": "132/Green's theorem and exact forms.md",
+      "sha256": "07f5ffba6153061405d4ffa685d8a4e6d274e6b6764712af2e15282d9235ff2a",
+      "url": "/math/notes/132/greens-theorem-and-exact-forms/",
+      "title": "Green's theorem and exact forms",
+      "isCourse": false,
+      "formulas": 21
+    },
+    {
+      "source": "132/Harmonic conjugates.md",
+      "sha256": "304b7e17cbf2730360b52d5818eb15c274e6894fe4c4f2cb59f678b91c738ae6",
+      "url": "/math/notes/132/harmonic-conjugates/",
+      "title": "Harmonic conjugates",
+      "isCourse": false,
+      "formulas": 16
+    },
+    {
+      "source": "132/Harmonic functions.md",
+      "sha256": "d545ab576d7529ce493e442fc1378d93e785d75316d11ff12e0a5ad67da5ffe7",
+      "url": "/math/notes/132/harmonic-functions/",
+      "title": "Harmonic functions",
+      "isCourse": false,
+      "formulas": 19
+    },
+    {
+      "source": "132/Holomorphic functions at infinity.md",
+      "sha256": "8f4522b3c8613428b8d5e3e8f7a2c4019abdcb0eb7b1bf16f18096b5e0a5b439",
+      "url": "/math/notes/132/holomorphic-functions-at-infinity/",
+      "title": "Holomorphic functions at infinity",
+      "isCourse": false,
+      "formulas": 21
+    },
+    {
+      "source": "132/Holomorphic functions.md",
+      "sha256": "69db38efc754ef086e9cd32cde95203274a1620240076325f71b625760507e56",
+      "url": "/math/notes/132/holomorphic-functions/",
+      "title": "Holomorphic functions",
+      "isCourse": false,
+      "formulas": 18
+    },
+    {
+      "source": "132/Identity theorem.md",
+      "sha256": "aefe23c9f39859da7175e8212b03dff346048fd1c44ee659e888021fbde796b6",
+      "url": "/math/notes/132/identity-theorem/",
+      "title": "Identity theorem",
+      "isCourse": false,
+      "formulas": 19
+    },
+    {
+      "source": "132/Isolated singularities.md",
+      "sha256": "f81f6cbf40ea8fd77f08e803784ff572c937c92e377383d437e77a6668f0e371",
+      "url": "/math/notes/132/isolated-singularities/",
+      "title": "Isolated singularities",
+      "isCourse": false,
+      "formulas": 18
+    },
+    {
+      "source": "132/Laurent series.md",
+      "sha256": "bbf547fa5bac4f8f225ea476dc56f2ba7ba3b62cfb93bc2c51f155d6e0a6db2b",
+      "url": "/math/notes/132/laurent-series/",
+      "title": "Laurent series",
+      "isCourse": false,
+      "formulas": 15
+    },
+    {
+      "source": "132/Liouville's theorem.md",
+      "sha256": "2ee8604d95e85c494c22e2ac62e2aba9d95b9b6858ccfb0863cd713bb93bea52",
+      "url": "/math/notes/132/liouvilles-theorem/",
+      "title": "Liouville's theorem",
+      "isCourse": false,
+      "formulas": 15
+    },
+    {
+      "source": "132/Locally uniform convergence.md",
+      "sha256": "61d422834f9fce1c4c97415a0f1fb2d5b63a797ff5d6599559c6c955155ff3d7",
+      "url": "/math/notes/132/locally-uniform-convergence/",
+      "title": "Locally uniform convergence",
+      "isCourse": false,
+      "formulas": 19
+    },
+    {
+      "source": "132/ML estimate.md",
+      "sha256": "228d6047f21589d67aeb5e29d048a5c5424d87d10fb0c3468c61f9725ec882fd",
+      "url": "/math/notes/132/ml-estimate/",
+      "title": "ML estimate",
+      "isCourse": false,
+      "formulas": 16
+    },
+    {
+      "source": "132/Maximum modulus principle.md",
+      "sha256": "634c0e7026864e2783863f4d0a093bd365d92d371095f205f3b8b3b809b47448",
+      "url": "/math/notes/132/maximum-modulus-principle/",
+      "title": "Maximum modulus principle",
+      "isCourse": false,
+      "formulas": 28
+    },
+    {
+      "source": "132/Maximum principle for harmonic functions.md",
+      "sha256": "2ce2d6be20932cd970347c4ff01e79d42d805f6865f844b70745a8ab2f2a5e43",
+      "url": "/math/notes/132/maximum-principle-for-harmonic-functions/",
+      "title": "Maximum principle for harmonic functions",
+      "isCourse": false,
+      "formulas": 12
+    },
+    {
+      "source": "132/Mean value property.md",
+      "sha256": "4b7798ba93fb86a3e3432c8ce5e3b6df8ac841f6c5949567dabfaaa29e0c2e6b",
+      "url": "/math/notes/132/mean-value-property/",
+      "title": "Mean value property",
+      "isCourse": false,
+      "formulas": 15
+    },
+    {
+      "source": "132/Morera's theorem.md",
+      "sha256": "8218464ca60ed859342bc0062e212c3691ffcbfacfa0389ce4f029d40e68f58e",
+      "url": "/math/notes/132/moreras-theorem/",
+      "title": "Morera's theorem",
+      "isCourse": false,
+      "formulas": 19
+    },
+    {
+      "source": "132/Möbius transformations.md",
+      "sha256": "6b61caeb72175e3e1e0c0ba3d42edcc8af03755a2a4984f3ada7d54032f395af",
+      "url": "/math/notes/132/mobius-transformations/",
+      "title": "Möbius transformations",
+      "isCourse": false,
+      "formulas": 27
+    },
+    {
+      "source": "132/Operations on power series.md",
+      "sha256": "f9d0571160344d3aa78a423e0f3c58ac41fcc079089ef5b463d1a9c7db146648",
+      "url": "/math/notes/132/operations-on-power-series/",
+      "title": "Operations on power series",
+      "isCourse": false,
+      "formulas": 19
+    },
+    {
+      "source": "132/Poles and meromorphic functions.md",
+      "sha256": "254b7b5275d01ff4d049b2445c8d297b8c6ce3246f76ae98cb38d90417c44fb0",
+      "url": "/math/notes/132/poles-and-meromorphic-functions/",
+      "title": "Poles and meromorphic functions",
+      "isCourse": false,
+      "formulas": 26
+    },
+    {
+      "source": "132/Primitives and path independence.md",
+      "sha256": "71d09f4d1e475acdd2057cf060aae1f72c5992edb77966efc63c804fc74f0f4a",
+      "url": "/math/notes/132/primitives-and-path-independence/",
+      "title": "Primitives and path independence",
+      "isCourse": false,
+      "formulas": 22
+    },
+    {
+      "source": "132/Real integrals by residues.md",
+      "sha256": "b3bba1907fc629f2f0aa2d5c24ca63f3c3f3444024ddbabf9d42c815725168fa",
+      "url": "/math/notes/132/real-integrals-by-residues/",
+      "title": "Real integrals by residues",
+      "isCourse": false,
+      "formulas": 21
+    },
+    {
+      "source": "132/Removable singularity theorem.md",
+      "sha256": "377e82e2f0f8dcc3fa8d649804353feb37fa21fb993e16ae5a34d780b2405407",
+      "url": "/math/notes/132/removable-singularity-theorem/",
+      "title": "Removable singularity theorem",
+      "isCourse": false,
+      "formulas": 19
+    },
+    {
+      "source": "132/Residue theorem.md",
+      "sha256": "d093e860e9d28fd4b11110c4567afe6726cd994454779fd3852d2579fad36cba",
+      "url": "/math/notes/132/residue-theorem/",
+      "title": "Residue theorem",
+      "isCourse": false,
+      "formulas": 11
+    },
+    {
+      "source": "132/Residue.md",
+      "sha256": "fbd60f0f207394d82523f3c53bf7b42f60f4c7c90ff91288e90f1bd93ef71b44",
+      "url": "/math/notes/132/residue/",
+      "title": "Residue",
+      "isCourse": false,
+      "formulas": 21
+    },
+    {
+      "source": "132/Riemann sphere.md",
+      "sha256": "3ed982a7ffeab78a5a5908bbbfa9f3d55eb77667cabc6c87842adfbce23cd315",
+      "url": "/math/notes/132/riemann-sphere/",
+      "title": "Riemann sphere",
+      "isCourse": false,
+      "formulas": 18
+    },
+    {
+      "source": "132/Schwarz lemma.md",
+      "sha256": "80e88c9f2fa773e84c652549789d2ffe906a4340eb64cd10b7ff180d45acff9e",
+      "url": "/math/notes/132/schwarz-lemma/",
+      "title": "Schwarz lemma",
+      "isCourse": false,
+      "formulas": 21
+    },
+    {
+      "source": "132/Taylor expansion of holomorphic functions.md",
+      "sha256": "0bb77ea39e49f67cdc985e2cbaaf799cc4536e8b96f5f91852914980fe507e51",
+      "url": "/math/notes/132/taylor-expansion-of-holomorphic-functions/",
+      "title": "Taylor expansion of holomorphic functions",
+      "isCourse": false,
+      "formulas": 13
+    },
+    {
+      "source": "132/Zeros of holomorphic functions.md",
+      "sha256": "efbe2049953a8aabc0f04aa4f2952f87b8198fbcb827186bf088b45a4ee86724",
+      "url": "/math/notes/132/zeros-of-holomorphic-functions/",
+      "title": "Zeros of holomorphic functions",
+      "isCourse": false,
+      "formulas": 23
+    },
+    {
+      "source": "Compactness and continuity.md",
+      "sha256": "91c78c828332a3c9be0eb20e365bd7fe56ce26efbbbb9c7c0be2d898b9537cfa",
+      "url": "/math/notes/compactness-and-continuity/",
+      "title": "Compactness and continuity",
+      "isCourse": false,
+      "formulas": 33
+    }
+  ],
+  "generated": [
+    "math/assets/formulas.css",
+    "math/courses/115a/index.html",
+    "math/courses/115b/index.html",
+    "math/courses/131a/index.html",
+    "math/courses/131b/index.html",
+    "math/courses/132/index.html",
+    "math/data/search-index.json",
+    "math/index.html",
+    "math/notes/115a/adjoint/index.html",
+    "math/notes/115a/basis-and-dimension/index.html",
+    "math/notes/115a/cauchy-schwarz-inequality/index.html",
+    "math/notes/115a/change-of-basis-and-similarity/index.html",
+    "math/notes/115a/determinant-and-trace/index.html",
+    "math/notes/115a/diagonalization/index.html",
+    "math/notes/115a/dual-space/index.html",
+    "math/notes/115a/eigenvalues-and-eigenspaces/index.html",
+    "math/notes/115a/gram-schmidt/index.html",
+    "math/notes/115a/inner-product/index.html",
+    "math/notes/115a/isomorphism/index.html",
+    "math/notes/115a/kernel-and-image/index.html",
+    "math/notes/115a/linear-map/index.html",
+    "math/notes/115a/matrix-representation/index.html",
+    "math/notes/115a/normal-and-self-adjoint-operators/index.html",
+    "math/notes/115a/orthogonal-complement/index.html",
+    "math/notes/115a/orthogonal-projection/index.html",
+    "math/notes/115a/orthonormal-basis/index.html",
+    "math/notes/115a/rank-nullity-theorem/index.html",
+    "math/notes/115a/span-and-linear-independence/index.html",
+    "math/notes/115a/spectral-theorem/index.html",
+    "math/notes/115a/subspace/index.html",
+    "math/notes/115a/vector-space/index.html",
+    "math/notes/115b/cayley-hamilton-theorem/index.html",
+    "math/notes/115b/cyclic-subspace/index.html",
+    "math/notes/115b/direct-sum/index.html",
+    "math/notes/115b/dual-basis-and-dual-map/index.html",
+    "math/notes/115b/generalized-eigenspace/index.html",
+    "math/notes/115b/invariant-subspace/index.html",
+    "math/notes/115b/jordan-canonical-form/index.html",
+    "math/notes/115b/minimal-polynomial/index.html",
+    "math/notes/115b/positive-definite-matrix/index.html",
+    "math/notes/115b/quadratic-form/index.html",
+    "math/notes/115b/quotient-space/index.html",
+    "math/notes/115b/sylvester-law-of-inertia/index.html",
+    "math/notes/115b/unitary-and-orthogonal-operators/index.html",
+    "math/notes/131a/absolute-convergence/index.html",
+    "math/notes/131a/alternating-series-test/index.html",
+    "math/notes/131a/bolzano-weierstrass-theorem/index.html",
+    "math/notes/131a/cauchy-criterion-for-series/index.html",
+    "math/notes/131a/cauchy-sequence/index.html",
+    "math/notes/131a/compact-set/index.html",
+    "math/notes/131a/comparison-test/index.html",
+    "math/notes/131a/completeness-axiom/index.html",
+    "math/notes/131a/continuity/index.html",
+    "math/notes/131a/convergence-of-a-sequence/index.html",
+    "math/notes/131a/dedekind-cut/index.html",
+    "math/notes/131a/derivative/index.html",
+    "math/notes/131a/generalized-mvt/index.html",
+    "math/notes/131a/integral-test/index.html",
+    "math/notes/131a/interior-closure-boundary/index.html",
+    "math/notes/131a/ivt/index.html",
+    "math/notes/131a/limsup-and-liminf/index.html",
+    "math/notes/131a/local-extrema/index.html",
+    "math/notes/131a/monotone-convergence-theorem/index.html",
+    "math/notes/131a/mvt/index.html",
+    "math/notes/131a/nested-closed-sets-theorem/index.html",
+    "math/notes/131a/open-and-closed/index.html",
+    "math/notes/131a/partial-sums/index.html",
+    "math/notes/131a/pointwise-convergence/index.html",
+    "math/notes/131a/ratio-test/index.html",
+    "math/notes/131a/rolles-theorem/index.html",
+    "math/notes/131a/root-test/index.html",
+    "math/notes/131a/subsequence/index.html",
+    "math/notes/131a/sup-and-inf/index.html",
+    "math/notes/131a/uniform-continuity/index.html",
+    "math/notes/131a/uniform-convergence/index.html",
+    "math/notes/131b/completeness-of-a-metric-space/index.html",
+    "math/notes/131b/connectedness/index.html",
+    "math/notes/131b/continuity-in-metric-spaces/index.html",
+    "math/notes/131b/convolution/index.html",
+    "math/notes/131b/fourier-coefficients/index.html",
+    "math/notes/131b/fourier-theorem/index.html",
+    "math/notes/131b/fundamental-theorem-of-calculus/index.html",
+    "math/notes/131b/l2-space/index.html",
+    "math/notes/131b/lipschitz-continuity/index.html",
+    "math/notes/131b/metric-space/index.html",
+    "math/notes/131b/parseval-identity/index.html",
+    "math/notes/131b/power-series/index.html",
+    "math/notes/131b/riemann-integral/index.html",
+    "math/notes/131b/spaces-of-functions/index.html",
+    "math/notes/131b/taylor-series/index.html",
+    "math/notes/131b/uniform-convergence-theorems/index.html",
+    "math/notes/131b/weierstrass-approximation-theorem/index.html",
+    "math/notes/131b/weierstrass-m-test/index.html",
+    "math/notes/132/branches-of-logarithms-and-powers/index.html",
+    "math/notes/132/cauchy-estimates/index.html",
+    "math/notes/132/cauchy-integral-formula/index.html",
+    "math/notes/132/cauchy-riemann-equations/index.html",
+    "math/notes/132/cauchys-theorem/index.html",
+    "math/notes/132/complex-exponential-and-trigonometric-functions/index.html",
+    "math/notes/132/complex-inverse-function-theorem/index.html",
+    "math/notes/132/complex-limits-and-continuity/index.html",
+    "math/notes/132/complex-numbers-and-polar-form/index.html",
+    "math/notes/132/complex-power-series/index.html",
+    "math/notes/132/contour-integrals/index.html",
+    "math/notes/132/domains-and-simple-connectedness/index.html",
+    "math/notes/132/essential-singularities/index.html",
+    "math/notes/132/fundamental-theorem-of-algebra/index.html",
+    "math/notes/132/goursats-theorem/index.html",
+    "math/notes/132/greens-theorem-and-exact-forms/index.html",
+    "math/notes/132/harmonic-conjugates/index.html",
+    "math/notes/132/harmonic-functions/index.html",
+    "math/notes/132/holomorphic-functions-at-infinity/index.html",
+    "math/notes/132/holomorphic-functions/index.html",
+    "math/notes/132/identity-theorem/index.html",
+    "math/notes/132/isolated-singularities/index.html",
+    "math/notes/132/laurent-series/index.html",
+    "math/notes/132/liouvilles-theorem/index.html",
+    "math/notes/132/locally-uniform-convergence/index.html",
+    "math/notes/132/maximum-modulus-principle/index.html",
+    "math/notes/132/maximum-principle-for-harmonic-functions/index.html",
+    "math/notes/132/mean-value-property/index.html",
+    "math/notes/132/ml-estimate/index.html",
+    "math/notes/132/mobius-transformations/index.html",
+    "math/notes/132/moreras-theorem/index.html",
+    "math/notes/132/operations-on-power-series/index.html",
+    "math/notes/132/poles-and-meromorphic-functions/index.html",
+    "math/notes/132/primitives-and-path-independence/index.html",
+    "math/notes/132/real-integrals-by-residues/index.html",
+    "math/notes/132/removable-singularity-theorem/index.html",
+    "math/notes/132/residue-theorem/index.html",
+    "math/notes/132/residue/index.html",
+    "math/notes/132/riemann-sphere/index.html",
+    "math/notes/132/schwarz-lemma/index.html",
+    "math/notes/132/taylor-expansion-of-holomorphic-functions/index.html",
+    "math/notes/132/zeros-of-holomorphic-functions/index.html",
+    "math/notes/compactness-and-continuity/index.html"
+  ]
+}
