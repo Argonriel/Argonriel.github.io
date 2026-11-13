@@ -25,6 +25,12 @@ The mathematics integration is prepared on **`math-notes-integration`**. Pushing
 
 ## Mathematics notes
 
+The mathematics home page is an interactive network: 133 nodes (127 topic notes, one cross-course guide, and five course indexes) and 531 distinct connections from the source wiki links. Reciprocal links share one visible edge. Course colors identify communities; node size reflects connection count. The complete catalogue remains available below the graph and without JavaScript.
+
+Hover to illuminate a node and its neighbors. Click to keep them highlighted, focus the local neighborhood, and open a note preview with its original formulas. Shift-click or turn on **Multi-select** to trace several ideas together. Drag nodes to adjust the force layout, drag the background to pan, and scroll or pinch to zoom. Search locates concepts, the course legend highlights a subject, and the reset-view button fits the whole network. The keyboard supports Tab, arrow keys, Enter/Space, Escape, and +/−. Reduced-motion preferences suppress the force animation. Selected nodes have shareable URLs; note pages link back to their place in the network.
+
+The graph data and initial force layout are generated from the same Markdown as the note pages. A small, locally bundled D3 force engine handles dragging; its licenses are included in `math/assets/d3-LICENSE.txt`. The network, previews, and search use same-site files only.
+
 The source is `Argonriel/Mathematics`, maintained in the local Obsidian vault. The website is a generated reading copy; edit the Markdown in the vault, commit the intended source revision, and regenerate the site on the integration branch.
 
 The export includes the five course folders (`115A`, `115B`, `131A_Iqra`, `131B_Inwon`, `132`) and the cross-course guide `Compactness and continuity.md`. It preserves note text, English/Chinese wording, theorem callouts, TeX, wiki links, heading/block anchors, and source page references. Backlinks are derived from links between topic notes. Vault settings, review logs, practice pages, and original PDFs are not exported; PDF references appear as citations rather than broken download links.

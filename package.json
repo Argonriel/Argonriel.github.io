@@ -6,8 +6,11 @@
     "sync:math": "node scripts/sync-math.mjs",
     "check:math": "node scripts/check-math.mjs"
   },
-  "engines": { "node": ">=20.19" },
+  "engines": {
+    "node": ">=20.19"
+  },
   "dependencies": {
+    "d3-force": "3.0.0",
     "markdown-it": "15.0.3",
     "mathjax": "4.1.3"
   }

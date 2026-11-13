@@ -40,6 +40,29 @@ for (const [file, html] of pages) {
   }
 }
 const search = JSON.parse(read('math/data/search-index.json'));
+const graph = JSON.parse(read('math/data/graph.json'));
+assert.equal(graph.nodes.length, manifest.pages.length, 'Every exported page is a graph node');
+assert.equal(new Set(graph.nodes.map(n => n.id)).size, graph.nodes.length, 'Unique graph node IDs');
+const graphById = new Map(graph.nodes.map(n => [n.id, n]));
+const graphByUrl = new Map(graph.nodes.map(n => [n.url, n]));
+const graphPairs = new Set();
+const degrees = new Map(graph.nodes.map(n => [n.id, 0]));
+for (const node of graph.nodes) {
+  assert(manifest.pages.some(p => p.url === node.url && p.title === node.title), `Graph destination: ${node.id}`);
+  assert(Number.isFinite(node.x) && Number.isFinite(node.y), `Node position: ${node.id}`);
+}
+for (const link of graph.links) {
+  assert(graphById.has(link.source) && graphById.has(link.target), 'Graph edge endpoints');
+  assert.notEqual(link.source, link.target, 'No self edges');
+  const pair = [link.source, link.target].sort().join('|');
+  assert(!graphPairs.has(pair), 'No duplicate undirected edges');
+  graphPairs.add(pair);
+  degrees.set(link.source, degrees.get(link.source) + 1);
+  degrees.set(link.target, degrees.get(link.target) + 1);
+}
+for (const node of graph.nodes) assert.equal(node.degree, degrees.get(node.id), `Correct connection count: ${node.id}`);
+assert.equal(graph.nodes.length, manifest.graphNodes);
+assert.equal(graph.links.length, manifest.graphConnections);
 const topics = manifest.pages.filter(p => !p.isCourse);
 assert.equal(search.length, topics.length, 'Search contains every topic');
 assert.equal(new Set(search.map(n => n.url)).size, search.length, 'Unique search URLs');
@@ -56,6 +79,15 @@ const args = process.argv.slice(2);
 if (args.length) {
   assert(args.length === 2 && args[0] === '--vault', 'Usage: node scripts/check-math.mjs [--vault /path/to/Mathematics]');
   const notes = readNotes(path.resolve(args[1]));
+  const byName = new Map(notes.flatMap(n => [[n.name, n], [n.source.replace(/\.md$/, ''), n]]));
+  const sourcePairs = new Set();
+  for (const note of notes) for (const [,wiki] of note.text.matchAll(/\[\[([^\]]+)\]\]/g)) {
+    const name = wiki.split('|')[0].split('#')[0].replace(/\.md$/, '');
+    const other = name ? byName.get(name) : note;
+    if (!other || other.url === note.url) continue;
+    sourcePairs.add([graphByUrl.get(note.url).id, graphByUrl.get(other.url).id].sort().join('|'));
+  }
+  assert.deepEqual([...graphPairs].sort(), [...sourcePairs].sort(), 'Graph contains exactly the real note links');
   assert.equal(notes.length, manifest.pages.length, 'Source page count');
   for (const note of notes) {
     const record = manifest.pages.find(p => p.source === note.source);
@@ -67,4 +99,4 @@ if (args.length) {
     assert.deepEqual(actual, expected, `TeX changed: ${note.source}`);
   }
 }
-console.log(JSON.stringify({pages: pages.size, topicNotes: manifest.topicNotes, courseIndexes: manifest.pages.filter(p => p.isCourse).length, crossCourseGuides: manifest.crossCourseGuides, formulas: formulaCount, internalLinksAndSvgReferences: linkCount, searchEntries: search.length, sourceVerified: Boolean(args.length), errors: []}, null, 2));
+console.log(JSON.stringify({pages: pages.size, topicNotes: manifest.topicNotes, courseIndexes: manifest.pages.filter(p => p.isCourse).length, crossCourseGuides: manifest.crossCourseGuides, formulas: formulaCount, graphNodes:graph.nodes.length, graphConnections:graph.links.length, internalLinksAndSvgReferences: linkCount, searchEntries: search.length, sourceVerified: Boolean(args.length), errors: []}, null, 2));

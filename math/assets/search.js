@@ -29,7 +29,9 @@
       count.textContent = `${visible} ${visible === 1 ? 'note or guide' : 'notes and guides'}${query.value.trim() || course.value ? ' found' : ''}`;
       empty.hidden = visible !== 0;
       if (updateUrl) {
-        const params = new URLSearchParams();
+        const params = new URLSearchParams(location.search);
+        params.delete('q');
+        params.delete('course');
         if (query.value.trim()) params.set('q', query.value.trim());
         if (course.value) params.set('course', course.value);
         history.replaceState(null, '', location.pathname + (params.size ? `?${params}` : '') + location.hash);

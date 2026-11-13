@@ -3,6 +3,8 @@
   "commit": "dd2401bdd625acb9befe8b7476b9ebb855568458",
   "date": "2026-11-12",
   "mathjax": "4.1.3",
+  "graphNodes": 133,
+  "graphConnections": 531,
   "courses": {
     "132": 42,
     "115a": 23,
@@ -1082,12 +1084,15 @@
     }
   ],
   "generated": [
+    "math/assets/d3-LICENSE.txt",
+    "math/assets/force.min.js",
     "math/assets/formulas.css",
     "math/courses/115a/index.html",
     "math/courses/115b/index.html",
     "math/courses/131a/index.html",
     "math/courses/131b/index.html",
     "math/courses/132/index.html",
+    "math/data/graph.json",
     "math/data/search-index.json",
     "math/index.html",
     "math/notes/115a/adjoint/index.html",
