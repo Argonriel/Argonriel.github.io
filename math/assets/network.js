@@ -28,7 +28,7 @@
     });
     let selected = new Set(), activeId = null, hoverId = null, activeGroup = '', multi = false;
     let view = {x: 0, y: 0, k: 1}, width = 0, height = 0, gesture = null;
-    let request = null;
+    let request = null, panFrame = null;
     const pointers = new Map(), previewCache = new Map();
     const nodeElements = new Map();
     const edgeElements = links.map(link => {
@@ -78,6 +78,7 @@
       positionTooltip();
     }
     function frame(list, maxZoom = 1.5) {
+      stopPan();
       width=stage.clientWidth; height=stage.clientHeight;
       svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
       const minX = Math.min(...list.map(n => n.x)) - 40, maxX = Math.max(...list.map(n => n.x)) + 100;
@@ -93,6 +94,7 @@
       frame(nodes.filter(n=>ids.has(n.id)),2);
     }
     function zoom(factor, point = {x: width / 2, y: height / 2}) {
+      stopPan();
       const k = Math.max(.15, Math.min(4, view.k * factor)), ratio = k / view.k;
       setView({k, x: point.x - (point.x - view.x) * ratio, y: point.y - (point.y - view.y) * ratio});
     }
@@ -244,7 +246,7 @@
       if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {event.preventDefault(); options[(index + (event.key === 'ArrowDown' ? 1 : options.length - 1)) % options.length]?.focus();}
       if (event.key === 'Escape') {results.hidden = true; query.focus();}
     });
-    document.addEventListener('pointerdown', event => {if (!event.target.closest('.network-search')) results.hidden = true;});
+    document.addEventListener('pointerdown', event => {stopPan();if (!event.target.closest('.network-search')) results.hidden = true;});
     for (const button of shell.querySelectorAll('[data-group]')) button.addEventListener('click', () => {
       activeGroup = activeGroup === button.dataset.group ? '' : button.dataset.group;
       selected.clear(); activeId = null; hoverId = null; showInspector(); paintState(); saveUrl();
@@ -260,18 +262,26 @@
     $('#browse-list-link').addEventListener('click', () => {directory.open = true;});
     const point = event => {const rect = svg.getBoundingClientRect(); return {x: event.clientX - rect.left, y: event.clientY - rect.top};};
     const world = p => ({x:(p.x - view.x) / view.k, y:(p.y - view.y) / view.k});
-    function swayWithPan(dx, dy) {
-      if (reducedMotion || Math.hypot(dx,dy)<.001) return;
-      const maxSpeed=18/view.k;
-      for (const node of nodes) {
-        if (node.fx!=null || node.fy!=null) continue;
-        // Hubs carry slightly more inertia. Different responses let the links
-        // stretch and transmit the pull instead of shifting a rigid picture.
-        const inertia=.1+.1*node.degree/(node.degree+6);
-        node.vx=Math.max(-maxSpeed,Math.min(maxSpeed,node.vx-dx/view.k*inertia));
-        node.vy=Math.max(-maxSpeed,Math.min(maxSpeed,node.vy-dy/view.k*inertia));
+    function stopPan() {
+      if (panFrame !== null) cancelAnimationFrame(panFrame);
+      panFrame = null;
+    }
+    function coastPan(drag) {
+      stopPan();
+      if (reducedMotion || performance.now()-drag.lastMove>80) return;
+      const speed=Math.hypot(drag.velocity.x,drag.velocity.y);
+      if (speed<.025) return;
+      const limit=Math.min(1,1.2/speed);
+      let vx=drag.velocity.x*limit, vy=drag.velocity.y*limit, last=performance.now();
+      function step(now) {
+        const elapsed=Math.min(32,now-last), decay=Math.exp(-elapsed/120);
+        last=now;
+        // Pan the view only. Navigation must not reheat or deform the layout.
+        setView({...view,x:view.x+vx*120*(1-decay),y:view.y+vy*120*(1-decay)});
+        vx*=decay; vy*=decay;
+        panFrame=Math.hypot(vx,vy)>.015 ? requestAnimationFrame(step) : null;
       }
-      simulation.alpha(Math.max(simulation.alpha(),.24)).alphaTarget(.18).restart();
+      panFrame=requestAnimationFrame(step);
     }
     function releaseDraggedNode(cancelled = false) {
       const node = gesture?.node;
@@ -311,7 +321,7 @@
       const start = point(event), anchor = world(start);
       gesture = {type:node ? 'node' : 'pan', node, start, view:{...view}, moved:false,
         offset:node ? {x:node.x-anchor.x,y:node.y-anchor.y} : null,
-        lastPoint:anchor, lastMove:performance.now(), velocity:{x:0,y:0}};
+        lastPoint:node ? anchor : start, lastMove:performance.now(), velocity:{x:0,y:0}};
       if (node) {node.fx = node.x; node.fy = node.y;}
     });
     svg.addEventListener('pointermove', event => {
@@ -336,9 +346,14 @@
       if (!gesture.moved) return;
       svg.classList.add('is-dragging');
       if (gesture.type === 'pan') {
-        const next={...view,x:gesture.view.x+dx,y:gesture.view.y+dy};
-        swayWithPan(next.x-view.x,next.y-view.y);
-        setView(next);
+        const now=performance.now(), elapsed=Math.max(8,now-gesture.lastMove);
+        const vx=(p.x-gesture.lastPoint.x)/elapsed, vy=(p.y-gesture.lastPoint.y)/elapsed;
+        const weight=1-Math.exp(-elapsed/40);
+        if(vx*gesture.velocity.x+vy*gesture.velocity.y<0) gesture.velocity={x:0,y:0};
+        gesture.velocity.x+=(vx-gesture.velocity.x)*weight;
+        gesture.velocity.y+=(vy-gesture.velocity.y)*weight;
+        gesture.lastPoint=p; gesture.lastMove=now;
+        setView({...view,x:gesture.view.x+dx,y:gesture.view.y+dy});
       }
       else if (gesture.node) {
         const target = world(p), now = performance.now(), elapsed = Math.max(8, now-gesture.lastMove);
@@ -358,10 +373,13 @@
         releaseDraggedNode(event.type === 'pointercancel');
         if (!gesture.moved && event.type !== 'pointercancel') select(gesture.node.id, multi || event.shiftKey || event.ctrlKey || event.metaKey);
       } else if (gesture?.type === 'pan') {
-        simulation.alphaTarget(0);
         if (!gesture.moved && event.type !== 'pointercancel') clear();
+        else if (gesture.moved && event.type !== 'pointercancel' && !pointers.size) coastPan(gesture);
       }
-      if (pointers.size === 1) gesture = {type:'pan', start:[...pointers.values()][0], view:{...view}, moved:true}; else gesture = null;
+      if (pointers.size === 1) {
+        const start=[...pointers.values()][0];
+        gesture={type:'pan',start,view:{...view},moved:true,lastPoint:start,lastMove:performance.now(),velocity:{x:0,y:0}};
+      } else gesture = null;
       if (!pointers.size) svg.classList.remove('is-dragging');
     }
     svg.addEventListener('pointerup', pointerEnd); svg.addEventListener('pointercancel', pointerEnd);
@@ -382,6 +400,7 @@
       if (next && Number.isFinite(next.score)) {for(const el of nodeElements.values()) el.setAttribute('tabindex','-1'); const el=nodeElements.get(next.node.id);el.setAttribute('tabindex','0');el.focus({preventScroll:true});}
     });
     const resize = new ResizeObserver(() => {
+      stopPan();
       const oldWidth=width, oldHeight=height;
       width=stage.clientWidth; height=stage.clientHeight;
       svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
@@ -393,12 +412,13 @@
     nodeElements.get(activeId || nodes[0].id).setAttribute('tabindex','0');
     $('#graph-loading').hidden=true;
     shell.dataset.ready='true';
-    if(matchMedia('(pointer: coarse)').matches) $('#graph-help').textContent='Tap to explore · Drag to sway · Pinch to zoom';
+    if(matchMedia('(pointer: coarse)').matches) $('#graph-help').textContent='Tap to explore · Drag to pan · Pinch to zoom';
     if (!location.hash && !new URLSearchParams(location.search).has('q')) directory.open=false;
     if (location.hash === '#find-note' || location.hash === '#browse-notes') directory.open=true;
     addEventListener('popstate', () => {readUrl();paintState();showInspector();});
     addEventListener('hashchange', () => {if(['#find-note','#browse-notes'].includes(location.hash))directory.open=true;});
     function cancelGesture() {
+      stopPan();
       releaseDraggedNode(true);
       gesture=null; pointers.clear();
       svg.classList.remove('is-dragging');

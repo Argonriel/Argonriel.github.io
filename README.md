@@ -33,7 +33,7 @@ The graph data and initial force layout are generated from the same Markdown as 
 
 Node dragging keeps the spring simulation active while the pointer is held. Connected nodes follow the pull, a quick release retains a bounded amount of momentum, and the graph gradually settles afterward. Releasing a drag does not open a note or move the camera. Pointer cancellation, window blur, and hidden tabs release held nodes; idle graphs do not keep running. The reduced-motion setting still provides direct node movement without the spring animation.
 
-Dragging the empty background pans the map and makes the entire network sway. Nodes lag by slightly different amounts, so links flex as the motion passes through the graph. After release, the view stays where it was placed while the nodes continue moving and settle. This works with mouse and touch; reduced motion keeps ordinary panning without the sway.
+Dragging the empty background moves the view without applying forces to the nodes or changing the layout. A quick release gives the view a brief, smoothly decaying glide; pausing before release stops it immediately. A new press, zoom, resize, or window blur stops the glide. Mouse and touch use the same behavior, while reduced motion disables the glide. Node dragging retains its spring response independently of map navigation.
 
 The source is `Argonriel/Mathematics`, maintained in the local Obsidian vault. The website is a generated reading copy; edit the Markdown in the vault, commit the intended source revision, and regenerate the site on the integration branch.
 
