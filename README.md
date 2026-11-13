@@ -33,6 +33,8 @@ The graph data and initial force layout are generated from the same Markdown as 
 
 Node dragging keeps the spring simulation active while the pointer is held. Connected nodes follow the pull, a quick release retains a bounded amount of momentum, and the graph gradually settles afterward. Releasing a drag does not open a note or move the camera. Pointer cancellation, window blur, and hidden tabs release held nodes; idle graphs do not keep running. The reduced-motion setting still provides direct node movement without the spring animation.
 
+Dragging the empty background pans the map and makes the entire network sway. Nodes lag by slightly different amounts, so links flex as the motion passes through the graph. After release, the view stays where it was placed while the nodes continue moving and settle. This works with mouse and touch; reduced motion keeps ordinary panning without the sway.
+
 The source is `Argonriel/Mathematics`, maintained in the local Obsidian vault. The website is a generated reading copy; edit the Markdown in the vault, commit the intended source revision, and regenerate the site on the integration branch.
 
 The export includes the five course folders (`115A`, `115B`, `131A_Iqra`, `131B_Inwon`, `132`) and the cross-course guide `Compactness and continuity.md`. It preserves note text, English/Chinese wording, theorem callouts, TeX, wiki links, heading/block anchors, and source page references. Backlinks are derived from links between topic notes. Vault settings, review logs, practice pages, and original PDFs are not exported; PDF references appear as citations rather than broken download links.

@@ -260,6 +260,19 @@
     $('#browse-list-link').addEventListener('click', () => {directory.open = true;});
     const point = event => {const rect = svg.getBoundingClientRect(); return {x: event.clientX - rect.left, y: event.clientY - rect.top};};
     const world = p => ({x:(p.x - view.x) / view.k, y:(p.y - view.y) / view.k});
+    function swayWithPan(dx, dy) {
+      if (reducedMotion || Math.hypot(dx,dy)<.001) return;
+      const maxSpeed=18/view.k;
+      for (const node of nodes) {
+        if (node.fx!=null || node.fy!=null) continue;
+        // Hubs carry slightly more inertia. Different responses let the links
+        // stretch and transmit the pull instead of shifting a rigid picture.
+        const inertia=.1+.1*node.degree/(node.degree+6);
+        node.vx=Math.max(-maxSpeed,Math.min(maxSpeed,node.vx-dx/view.k*inertia));
+        node.vy=Math.max(-maxSpeed,Math.min(maxSpeed,node.vy-dy/view.k*inertia));
+      }
+      simulation.alpha(Math.max(simulation.alpha(),.24)).alphaTarget(.18).restart();
+    }
     function releaseDraggedNode(cancelled = false) {
       const node = gesture?.node;
       if (!node) return;
@@ -285,6 +298,7 @@
       $('#graph-tooltip').hidden = true;
       if (pointers.size === 2) {
         releaseDraggedNode(true);
+        simulation.alphaTarget(0);
         gesture = pinchGesture(); return;
       }
       if (pointers.size > 2) return;
@@ -321,7 +335,11 @@
       }
       if (!gesture.moved) return;
       svg.classList.add('is-dragging');
-      if (gesture.type === 'pan') setView({...view,x:gesture.view.x+dx,y:gesture.view.y+dy});
+      if (gesture.type === 'pan') {
+        const next={...view,x:gesture.view.x+dx,y:gesture.view.y+dy};
+        swayWithPan(next.x-view.x,next.y-view.y);
+        setView(next);
+      }
       else if (gesture.node) {
         const target = world(p), now = performance.now(), elapsed = Math.max(8, now-gesture.lastMove);
         const vx=(target.x-gesture.lastPoint.x)*16.67/elapsed, vy=(target.y-gesture.lastPoint.y)*16.67/elapsed;
@@ -339,7 +357,10 @@
       if (gesture?.node) {
         releaseDraggedNode(event.type === 'pointercancel');
         if (!gesture.moved && event.type !== 'pointercancel') select(gesture.node.id, multi || event.shiftKey || event.ctrlKey || event.metaKey);
-      } else if (gesture?.type === 'pan' && !gesture.moved && event.type !== 'pointercancel') clear();
+      } else if (gesture?.type === 'pan') {
+        simulation.alphaTarget(0);
+        if (!gesture.moved && event.type !== 'pointercancel') clear();
+      }
       if (pointers.size === 1) gesture = {type:'pan', start:[...pointers.values()][0], view:{...view}, moved:true}; else gesture = null;
       if (!pointers.size) svg.classList.remove('is-dragging');
     }
@@ -372,7 +393,7 @@
     nodeElements.get(activeId || nodes[0].id).setAttribute('tabindex','0');
     $('#graph-loading').hidden=true;
     shell.dataset.ready='true';
-    if(matchMedia('(pointer: coarse)').matches) $('#graph-help').textContent='Tap to explore · Drag to move · Pinch to zoom';
+    if(matchMedia('(pointer: coarse)').matches) $('#graph-help').textContent='Tap to explore · Drag to sway · Pinch to zoom';
     if (!location.hash && !new URLSearchParams(location.search).has('q')) directory.open=false;
     if (location.hash === '#find-note' || location.hash === '#browse-notes') directory.open=true;
     addEventListener('popstate', () => {readUrl();paintState();showInspector();});
