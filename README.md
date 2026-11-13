@@ -21,7 +21,7 @@ This simple version is maintained on `main`. In repository **Settings → Pages*
 
 The `garden` branch contains the separate Mathematical Garden version.
 
-The mathematics integration is prepared on **`math-notes-integration`**. Pushing that branch does not merge it into `main`. Keep the Pages publishing source on `main` while reviewing this work; this branch has no deployment workflow. A later merge and publication should be a separate decision.
+The mathematics network and its generated notes are published from **`main`** at **https://argonriel.com/math/**. Prepare future changes on **`math-notes-integration`**, validate and preview them there, then merge the approved changes into `main` to publish through GitHub Pages.
 
 ## Mathematics notes
 
